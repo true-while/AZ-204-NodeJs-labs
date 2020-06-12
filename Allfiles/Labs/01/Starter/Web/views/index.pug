@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  nav.navbar.navbar-dark.bg-dark
+    span.navbar-brand.mb-0.h1 Contoso Photo Gallery
+  .mx-5.mb-5
+    .card
+      .card-header.text-dark
+        | Upload a new image
+      .card-body
+        form(method='post' enctype='multipart/form-data')
+          .custom-file            
+            input.custom-file-input(type='file' name='file')
+            label.custom-file-label Choose image
+          button.btn.btn-secondary(type='submit') Upload
+    h1.display-1.text-light
+      | Images
+    .card-columns.text-light
+      div!= htmlImgOutput
