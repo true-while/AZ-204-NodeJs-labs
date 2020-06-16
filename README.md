@@ -2,8 +2,9 @@
 
 This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure) converted to NodeJS to simplify preparation for Java developes.
 
-- [Lab01](/Instructions/Labs/AZ-204_01_lab_ak.md)
-
+- [Lab01: Creating Azure App Service Web Apps](/Instructions/Labs/AZ-204_01_lab_ak.md)
+- [Lab02: Implement Azure Functions](/Instructions/Labs/AZ-204_02_lab_ak.md)
+- [Lab03:Retrieving Azure Storage resources and metadata by using the Azure Storage SDK](/Instructions/Labs/AZ-204_03_lab_ak.md)
 
 
 ## What are we doing?

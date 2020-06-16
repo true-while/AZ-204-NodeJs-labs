@@ -1,13 +1,10 @@
 ---
 lab:
-    title: 'Lab: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET'
+    title: 'Lab: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK'
     az204Module: 'Module 03: Develop solutions that use blob storage'
-    az020Module: 'Module 03: Develop solutions that use blob storage'
-    type: 'Answer Key'
 ---
 
-# Lab: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET
-# Student lab answer key
+# Lab: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK
 
 ## Microsoft Azure user interface
 
@@ -18,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -106,10 +93,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1.  Still on the **Storage account** blade, find the **Settings** section, and then select the **Access keys** link.
 
 1.  In the **Access keys** section, perform the following actions:
-
-    1.  Record the value in the **Storage account name** text box.
     
-    1.  Select any one of the keys, and then record the value in either of the **Key** boxes.
+    1.  Select any one of the **Connection string**, and then record the value.
 
     > **Note**: All these values will be used later in this lab.
 
@@ -190,182 +175,149 @@ In this exercise, you created a couple of placeholder containers in the storage 
 1.  At the open command prompt, enter the following command, and then select Enter to create a new .NET project named **BlobManager** in the current folder:
 
     ```
-    dotnet new console --name BlobManager --output .
+    npm init -y
     ```
 
-    > **Note**: The **dotnet new** command will create a new **console** project in a folder with the same name as the project.
+    > **Note**: The command will create a new `package.json` file in a folder with the same parameters name of projects.
 
-1.  At the command prompt, enter the following command, and then select Enter to import version 12.0.0 of **Azure.Storage.Blobs** from NuGet:
+1.  Create new file **index.js**.
 
-    ```
-    dotnet add package Azure.Storage.Blobs --version 12.0.0
-    ```
+1.  Add following line to the file **console.log("hello world!");**
 
-    > **Note**: The **dotnet add package** command will add the **Azure.Storage.Blobs** package from NuGet. For more information, go to [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0).
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
+1.  At the command prompt, enter the following commands to install package **@azure/storage-blob** and others from NPM:
 
     ```
-    dotnet build
+    npm install @azure/storage-blob
+    ```
+
+    > **Note**: The **npm install** command will add the **@azure/storage-blob** package from NPM. For more information, go to [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob).
+
+1.  At the command prompt, enter the following command, and then select Enter to build the application. You should see the hello message:
+
+    ```
+    node .\index.js
     ```
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
 #### Task 2: Modify the Program class to access Storage
 
-1.  In the Explorer pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1.  In the Explorer pane of the **Visual Studio Code** window, open the **index.js** file.
 
-1.  On the code editor tab for the **Program.cs** file, delete all the code in the existing file.
+1.  On the code editor tab for the **index.js** file, delete all the code in the existing file.
 
-1.  Add the following line of code to import the **Azure.Storage**, **Azure.Storage.Blobs**, and **Azure.Storage.Blobs.Models** namespaces from the **Azure.Storage.Blobs** package imported from NuGet:
+1.  Add the following line of code to import the **azure/storage-blob** package:
 
-    ```
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
+    ```JavaScript
+
+    const { BlobServiceClient } = require('@azure/storage-blob');
     ```
     
-1.  Add the following lines of code to add **using** directives for the built-in namespaces that will be used in this file:
 
-    ```
-    using System;
-    using System.Threading.Tasks;
-    ```
+1.  Enter the following code to create a new **index.js** file:
 
-1.  Enter the following code to create a new **Program** class:
-
-    ```
-    public class Program
+    ```JavaScript
+    async function main()
     {
     }
+
+    main();
     ``` 
 
-1.  In the **Program** class, enter the following line of code to create a new string constant named **blobServiceEndpoint**:
+1.  In the **index.js** file, enter the following line of code to create a new string constant named **blobServiceConString**:
 
-    ```
-    private const string blobServiceEndpoint = "";
-    ```
-
-1.  Update the **blobServiceEndpoint** string constant by setting its value to the **Primary Blob Service Endpoint** of the Storage account that you recorded earlier in this lab.
-
-1.  In the **Program** class, enter the following line of code to create a new string constant named **storageAccountName**:
-
-    ```
-    private const string storageAccountName = "";
+    ```JavaScript
+    const blobServiceConString = "...";
     ```
 
-1.  Update the **storageAccountName** string constant by setting its value to the **Storage account name** of the Storage account that you recorded earlier in this lab.
 
-1.  In the **Program** class, enter the following line of code to create a new string constant named **storageAccountKey**:
+1.  Update the **blobServiceConString** string constant by setting its value to the **Connection string** of the Storage account that you recorded earlier in this lab.
 
-    ```
-    private const string storageAccountKey = "";
-    ```
+1.  In the **index.js** file, enter the following code to create a server asynchronous under method **main** method:
 
-1.  Update the **storageAccountKey** string constant by setting its value to the **Key** of the Storage account that you recorded earlier in this lab.
+    ```Javascript
+    async function enumerateContainers(client) {
 
-1.  In the **Program** class, enter the following code to create a new asynchronous **Main** method:
+    }
 
-    ```
-    public static async Task Main(string[] args)
-    {
+    async function enumerateBlobs(client, ctname) {
+
+    }
+
+    async function getContainer(blobServiceClient, ctname) {
+
+    }
+
+    async function getBlob(containerClient, blobName) {
+
     }
     ```
 
-1.  Observe the **Program.cs** file, which should now include:
-
-    ```
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
-    using System;
-    using System.Threading.Tasks;
-
-    public class Program
-    {
-        private const string blobServiceEndpoint = "<primary-blob-service-endpoint>";
-        private const string storageAccountName = "<storage-account-name>";
-        private const string storageAccountKey = "<key>";
-
-        public static async Task Main(string[] args)
-        {
-        }
-    }
-    ```
 
 #### Task 3: Connect to the Azure Storage blob service endpoint
 
-1.  In the **Main** method, add the following line of code to create a new instance of the **StorageSharedKeyCredential** class by using the **storageAccountName** and **storageAccountKey** constants as constructor parameters:
+1.  In the **main** method, add the following line of code to create a new instance of the **BlobServiceClient** class by using the **blobServiceConString**  constants as constructor parameters:
 
-    ```
-    StorageSharedKeyCredential accountCredentials = new StorageSharedKeyCredential(storageAccountName, storageAccountKey);
-    ```
-
-1.  In the **Main** method, add the following line of code to create a new instance of the **BlobServiceClient** class by using the **blobServiceEndpoint** constant and the *accountCredentials* variable as constructor parameters:
-
-    ```
-    BlobServiceClient serviceClient = new BlobServiceClient(new Uri(blobServiceEndpoint), accountCredentials);
+    ```Javascript
+    var blobServiceClient = await BlobServiceClient.fromConnectionString(blobServiceConString);
     ```
 
-1.  In the **Main** method, add the following line of code to invoke the **GetAccountInfoAsync** method of the **BlobServiceClient** class to retrieve account metadata from the service:
+1.  In the **main** method, add the following line of code to invoke the **getAccountInfo** method of the **BlobServiceClient** class to retrieve account metadata from the service:
 
-    ```
-    AccountInfo info = await serviceClient.GetAccountInfoAsync();
+    ```Javascript
+    var info = await blobServiceClient.getAccountInfo();
     ```
     
-1.  In the **Main** method, add the following line of code to render a welcome message:
+1.  In the **main** method, add the following line of code to render a welcome message:
 
-    ```
-    await Console.Out.WriteLineAsync($"Connected to Azure Storage Account");
-    ```
-    
-1.  In the **Main** method, add the following line of code to render the storage account's name:
-
-    ```
-    await Console.Out.WriteLineAsync($"Account name:\t{storageAccountName}");
+    ```Javascript
+    console.log('Connected to Azure Storage Account');
     ```
     
-1.  In the **Main** method, add the following line of code to render the type of storage account:
+1.  In the **main** method, add the following line of code to render the storage account's name:
 
-    ```
-    await Console.Out.WriteLineAsync($"Account kind:\t{info?.AccountKind}");
+    ```Javascript
+    console.log(`Account name:\t${blobServiceClient.accountName}`);
     ```
     
-1.  In the **Main** method, add the following line of code to render the currently selected stock keeping unit (SKU) for the storage account:
+1.  In the **main** method, add the following line of code to render the type of storage account:
 
+    ```Javascript
+    console.log(`Account kind:\t${info.accountKind}`);
     ```
-    await Console.Out.WriteLineAsync($"Account sku:\t{info?.SkuName}");
+    
+1.  In the **main** method, add the following line of code to render the currently selected stock keeping unit (SKU) for the storage account:
+
+    ```Javascript
+    console.log(`Account sku:\t${info.skuName}`);
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Observe the **main** method, which should now include:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        StorageSharedKeyCredential accountCredentials = new StorageSharedKeyCredential(storageAccountName, storageAccountKey);	
+    ```Javascript
+    async function main() {
 
-        BlobServiceClient serviceClient = new BlobServiceClient(new Uri(blobServiceEndpoint), accountCredentials);
+        var blobServiceClient = await BlobServiceClient.fromConnectionString(blobServiceConString);
+        var info = await blobServiceClient.getAccountInfo();
 
-        AccountInfo info = await serviceClient.GetAccountInfoAsync();
-
-        await Console.Out.WriteLineAsync($"Connected to Azure Storage Account");
-        await Console.Out.WriteLineAsync($"Account name:\t{storageAccountName}");
-        await Console.Out.WriteLineAsync($"Account kind:\t{info?.AccountKind}");
-        await Console.Out.WriteLineAsync($"Account sku:\t{info?.SkuName}");
+        console.log('Connected to Azure Storage Account');
+        console.log(`Account name:\t${blobServiceClient.accountName}`);
+        console.log(`Account kind:\t${info.accountKind}`);
+        console.log(`Account sku:\t${info.skuName}`);
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
 1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
 
-    ```
-    dotnet run
+    ```cmd
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The output contains metadata for the Storage account that was retrieved from the service.
 
@@ -373,68 +325,65 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
 #### Task 4: Enumerate the existing containers
 
-1.  In the **Program** class, enter the following code to create a new **private static** method named **EnumerateContainersAsync** that's asynchronous and has a single **BlobServiceClient** parameter type:
+1.  In the **index.js** file, find the method named **enumerateContainers** that's asynchronous and has a single **BlobServiceClient** parameter type:
 
-    ```
-    private static async Task EnumerateContainersAsync(BlobServiceClient client)
-    {        
+    ```javascript
+    async function enumerateContainers(client) {
+
     }
     ```
 
-1.  In the **EnumerateContainersAsync** method, enter the following code to create an asynchronous **foreach** loop that iterates over the results of an invocation of the **GetBlobContainersAsync** method of the **BlobServiceClient** class:
+1.  In the **enumerateContainers** method, enter the following code to create an asynchronous **for** loop that iterates over the results of an invocation of the **listContainers** method of the **BlobServiceClient** class:
 
-    ```
-    await foreach (BlobContainerItem container in client.GetBlobContainersAsync())
-    {
+    ```javascript
+    for await (const container of client.listContainers()) {
+        
     }
     ```
 
-1.  Within the **foreach** loop, enter the following code to print the name of each container:
+1.  Within the **for** loop, enter the following code to print the name of each container:
 
-    ```
-    await Console.Out.WriteLineAsync($"Container:\t{container.Name}");
+    ```javascript
+    console.log(`Container: ${container.name}`);
     ```
 
-1.  Observe the **EnumerateContainersAsync** method, which should now include:
+1.  Observe the **enumerateContainers** method, which should now include:
 
-    ```
-    private static async Task EnumerateContainersAsync(BlobServiceClient client)
-    {        
-        await foreach (BlobContainerItem container in client.GetBlobContainersAsync())
-        {
-            await Console.Out.WriteLineAsync($"Container:\t{container.Name}");
+    ```javascript
+    async function enumerateContainers(client) {
+        for await (const container of client.listContainers()) {
+            console.log(`Container: ${container.name}`);
         }
     }
     ```
 
-1.  In the **Main** method, enter the following code at the end of the method to invoke the **EnumerateContainersAsync** method, passing in the *serviceClient* variable as a parameter:
+1.  In the **main** method, enter the following code at the end of the method to invoke the **EnumerateContainersAsync** method, passing in the *serviceClient* variable as a parameter:
 
-    ```
-    await EnumerateContainersAsync(serviceClient);
+    ```javascript
+    await enumerateContainers(blobServiceClient);
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Observe the **main** method, which should now include:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
+    ```javascript
+    async function main() {
+        // Existing code removed for brevity
         
-        await EnumerateContainersAsync(serviceClient);
+        await enumerateContainers(serviceClient);
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or access the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
 1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
 
-    ```
+    ```cmd
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes a list of every existing container in the account.
 
@@ -448,93 +397,88 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
 
 #### Task 1: Enumerate the blobs in an existing container by using the SDK
 
-1.  In the **Program** class, enter the following code to create a new **private static** method named **EnumerateBlobsAsync** that's asynchronous and has two parameter types, **BlobServiceClient** and **string**:
+1.  In the **index.js** file, find  method named **enumerateBlobs** that's asynchronous and has two parameter types, **BlobServiceClient** and **string**:
 
-    ```
-    private static async Task EnumerateBlobsAsync(BlobServiceClient client, string containerName)
+    ```javascript
+    async function enumerateBlobs(client, ctname) {
     {      
     }
     ```
 
-1.  In the **EnumerateBlobsAsync** method, enter the following code to get a new instance of the **BlobContainerClient** class by using the **GetBlobContainerClient** method of the **BlobServiceClient** class, passing in the **containerName** parameter:
+1.  In the **enumerateBlobs** method, enter the following code to get a new instance of the **BlobContainerClient** class by using the **getContainerClient** method of the **BlobServiceClient** class, passing in the **ctname** parameter:
 
-    ```
-    BlobContainerClient container = client.GetBlobContainerClient(containerName);
-    ```
-
-1.  In the **EnumerateBlobsAsync** method, enter the following code to render the name of the container that will be enumerated:
-
-    ```
-    await Console.Out.WriteLineAsync($"Searching:\t{container.Name}");
+    ```javascript
+    const containerClient = await client.getContainerClient(ctname);
     ```
 
-1.  In the **EnumerateBlobsAsync** method, enter the following code to create an asynchronous **foreach** loop that iterates over the results of an invocation of the **GetBlobsAsync** method of the **BlobContainerClient** class:
+1.  In the **enumerateBlobs** method, enter the following code to render the name of the container that will be enumerated:
 
+    ```javascript
+    console.log(`Searching:\t${containerClient.containerName}`)
     ```
-    await foreach (BlobItem blob in container.GetBlobsAsync())
-    {        
+
+1.  In the **enumerateBlobs** method, enter the following code to create an asynchronous **for** loop that iterates over the results of an invocation of the **listBlobsFlat** method of the **BlobContainerClient** class:
+
+    ```javascript
+    for await (const blob of containerClient.listBlobsFlat()) {
     }
     ```
 
-1.  Within the **foreach** loop, enter the following code to print the name of each blob:
+1.  Within the **for** loop, enter the following code to print the name of each blob:
 
-    ```
-     await Console.Out.WriteLineAsync($"Existing Blob:\t{blob.Name}");
+    ```javascript
+    console.log(`Existing Blob:\t${blob.name}`);
     ```
 
-1.  Observe the **EnumerateBlobsAsync** method, which should now include:
+1.  Observe the **enumerateBlobs** method, which should now include:
 
-    ```
-    private static async Task EnumerateBlobsAsync(BlobServiceClient client, string containerName)
-    {      
-        BlobContainerClient container = client.GetBlobContainerClient(containerName);
-        
-        await Console.Out.WriteLineAsync($"Searching:\t{container.Name}");
-        
-        await foreach (BlobItem blob in container.GetBlobsAsync())
-        {        
-             await Console.Out.WriteLineAsync($"Existing Blob:\t{blob.Name}");
+    ```javascript
+    async function enumerateBlobs(client, ctname) {
+        const containerClient = await client.getContainerClient(ctname);
+        console.log(`Searching:\t${containerClient.containerName}`)
+        for await (const blob of containerClient.listBlobsFlat()) {
+            console.log(`Existing Blob:\t${blob.name}`);
         }
     }
     ```
 
-1.  In the **Main** method, enter the following code at the end of the method to create a variable named *existingContainerName* with a value of **raster-graphics**:
+1.  In the **main** method, enter the following code at the end of the method to create a variable named *existingContainerName* with a value of **raster-graphics**:
 
-    ```
-    string existingContainerName = "raster-graphics";
-    ```
-
-1.  In the **Main** method, enter the following code at the end of the method to invoke the **EnumerateBlobsAsync** method, passing in the *serviceClient* and *existingContainerName* variables as parameters:
-
-    ```
-    await EnumerateBlobsAsync(serviceClient, existingContainerName);
+    ```javascript
+    var existingContainerName = "raster-graphics";
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  In the **main** method, enter the following code at the end of the method to invoke the **enumerateBlobs** method, passing in the *blobServiceClient* and *existingContainerName* variables as parameters:
 
+    ```javascript
+    await enumerateBlobs(blobServiceClient, existingContainerName);
     ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
-        
-        await EnumerateContainersAsync(serviceClient);
 
-        string existingContainerName = "raster-graphics";
-        await EnumerateBlobsAsync(serviceClient, existingContainerName);
+1.  Observe the **main** method, which should now include:
+
+    ```javascript
+    async function main() {
+
+        // Existing code removed for brevity
+
+        await enumerateContainers(blobServiceClient);
+
+        var existingContainerName = "raster-graphics";
+        await enumerateBlobs(blobServiceClient, existingContainerName);
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
 1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
 
-    ```
+    ```cmd
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes metadata about the existing container and blobs.
 
@@ -542,93 +486,95 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
 
 #### Task 2: Create a new container by using the SDK
 
-1.  In the **Program** class, enter the following code to create a new **private static** method named **GetContainerAsync** that's asynchronous and has two parameter types, **BlobServiceClient** and **string**:
+1.  In the **index.js** file, find method named **getContainer** that's asynchronous and has two parameter types, **BlobServiceClient** and **string**:
 
-    ```
-    private static async Task<BlobContainerClient> GetContainerAsync(BlobServiceClient client, string containerName)
-    {      
+    ```javascript
+    async function getContainer(blobServiceClient, ctname) {
     }
     ```
 
-1.  In the **GetContainerAsync** method, enter the following code to get a new instance of the **BlobContainerClient** class by using the **GetBlobContainerClient** method of the **BlobServiceClient** class, passing in the **containerName** parameter:
+1.  In the **getContainer** method, enter the following code to get a new instance of the **BlobContainerClient** class by using the **getContainerClient** method of the **BlobServiceClient** class, passing in the **ctname** parameter:
 
     ```
-    BlobContainerClient container = client.GetBlobContainerClient(containerName);
+   var containerClient = await blobServiceClient.getContainerClient(ctname);
     ```
 
-1.  In the **GetContainerAsync** method, enter the following code to invoke the **CreateIfNotExistsAsync** method of the **BlobContainerClient** class:
+1.  In the **getContainer** method, enter the following code to invoke the **exists** method of the **BlobContainerClient** class to find out if the container already created and create if it is not created by use method create of **BlobContainerClient** class:
 
-    ```
-    await container.CreateIfNotExistsAsync(PublicAccessType.Blob);
-    ```
-
-1.  In the **GetContainerAsync** method, enter the following code to render the name of the container that was potentially created:
-
-    ```
-    await Console.Out.WriteLineAsync($"New Container:\t{container.Name}");
+    ```javascript
+    if (!await containerClient.exists())
+    {
+       await containerClient.create()
+       console.log(`New Container:\t${containerClient.containerName}`);
+    }  
     ```
 
-1.  In the **GetContainerAsync** method, enter the following code to return the instance of the **BlobContainerClient** class named **container** as the result of the **GetContainerAsync** method:
+1.  In the **getContainer** method, enter the following code to render the name of the container that was potentially created:
+
+    ```javascript
+    console.log(`New Container:\t${containerClient.containerName}`);
+    ```
+
+1.  In the **getContainer** method, enter the following code to return the instance of the **BlobContainerClient** class named **containerClient** as the result of the **getContainer** method:
 
     ```
-    return container;
+    return containerClient;
     ```  
 
-1.  Observe the **GetContainerAsync** method, which should now include:
+1.  Observe the **getContainer** method, which should now include:
 
-    ```
-    private static async Task<BlobContainerClient> GetContainerAsync(BlobServiceClient client, string containerName)
-    {      
-        BlobContainerClient container = client.GetBlobContainerClient(containerName);
-        
-        await container.CreateIfNotExistsAsync(PublicAccessType.Blob);
-        
-        await Console.Out.WriteLineAsync($"New Container:\t{container.Name}");
-        
-        return container;
+    ```javascript
+    async function getContainer(blobServiceClient, ctname) {
+        var containerClient = await blobServiceClient.getContainerClient(ctname);
+        if (!await containerClient.exists())
+        {
+            await containerClient.create()
+            console.log(`New Container:\t${containerClient.containerName}`);
+        }    
+        return containerClient;
     }
     ```
 
-1.  In the **Main** method, enter the following code at the end of the method to create a variable named *newContainerName* with a value of **vector-graphics**:
+1.  In the **main** method, enter the following code at the end of the method to create a variable named *newContainerName* with a value of **vector-graphics**:
 
-    ```
-    string newContainerName = "vector-graphics";
-    ```
-
-1.  In the **Main** method, enter the following code at the end of the method to invoke the **GetContainerAsync** method, passing in the *serviceClient* and *newContainerName* variables as parameters, and to store the result in a variable named *containerClient* of type **BlobContainerClient**:
-
-    ```
-    BlobContainerClient containerClient = await GetContainerAsync(serviceClient, newContainerName);
+    ```javascript
+    var newContainerName = "vector-graphics";
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  In the **main** method, enter the following code at the end of the method to invoke the **getContainer** method, passing in the *blobServiceClient* and *newContainerName* variables as parameters, and to store the result in a variable named *containerClient* of type **BlobContainerClient**:
 
+    ```javascript
+    var containerClient = await getContainer(blobServiceClient, newContainerName);
     ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
-        
-        await EnumerateContainersAsync(serviceClient);
 
-        string existingContainerName = "raster-graphics";
-        await EnumerateBlobsAsync(serviceClient, existingContainerName);
-        
-        string newContainerName = "vector-graphics";
-        BlobContainerClient containerClient = await GetContainerAsync(serviceClient, newContainerName);
+1.  Observe the **main** method, which should now include:
+
+    ```javascript
+    async function main() {
+
+            // Existing code removed for brevity
+
+            await enumerateContainers(blobServiceClient);
+
+            var existingContainerName = "raster-graphics";
+            await enumerateBlobs(blobServiceClient, existingContainerName);
+
+            var newContainerName = "vector-graphics";
+            var containerClient = await getContainer(blobServiceClient, newContainerName);
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
 1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
 
-    ```
+    ```cmd
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes metadata about the existing container and blobs.
 
@@ -660,80 +606,77 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
 
 #### Task 4: Access blob URI by using the SDK
 
-1.  In the **Program** class, enter the following code to create a new **private static** method named **GetBlobAsync** that's asynchronous and has two parameter types, **BlobContainerClient** and **string**:
+1.  In the **Program** class, locate method named **getBlob** that's asynchronous and has two parameter types, **BlobContainerClient** and **string**:
 
-    ```
-    private static async Task<BlobClient> GetBlobAsync(BlobContainerClient client, string blobName)
-    {      
+    ```javascript
+    async function getBlob(containerClient, blobName) {
     }
     ```
 
-1.  In the **GetBlobAsync** method, enter the following code to get a new instance of the **BlobClient** class by using the **GetBlobClient** method of the **BlobContainerClient** class, passing in the **blobName** parameter:
+1.  In the **getBlob** method, enter the following code to get a new instance of the **BlobClient** class by using the **GetBlobClient** method of the **BlobContainerClient** class, passing in the **blobName** parameter:
 
-    ```
-    BlobClient blob = client.GetBlobClient(blobName);
-    ```
-
-1.  In the **GetBlobAsync** method, enter the following code to render the name of the blob that was referenced:
-
-    ```
-    await Console.Out.WriteLineAsync($"Blob Found:\t{blob.Name}");
+    ```javascript
+    var blob = await containerClient.getBlockBlobClient(blobName)
     ```
 
-1.  In the **GetBlobAsync** method, enter the following code to return the instance of the **BlobClient** class named **blob** as the result of the **GetBlobAsync** method:
+1.  In the **getBlob** method, enter the following code to render the name of the blob that was referenced:
 
+    ```javascript
+    console.log(`Blob Found:\t${blob.name}`);
     ```
+
+1.  In the **getBlob** method, enter the following code to return the instance of the **BlobClient** class named **blob** as the result of the **getBlob** method:
+
+    ```javascript
     return blob;
     ```
 
-1.  Observe the **GetBlobAsync** method, which should now include:
+1.  Observe the **getBlob** method, which should now include:
 
-    ```
-    private static async Task<BlobClient> GetBlobAsync(BlobContainerClient client, string blobName)
-    {      
-        BlobClient blob = client.GetBlobClient(blobName);
-        await Console.Out.WriteLineAsync($"Blob Found:\t{blob.Name}");
+    ```javascript
+    async function getBlob(containerClient, blobName) {
+        var blob = await containerClient.getBlockBlobClient(blobName)
+        console.log(`Blob Found:\t${blob.name}`);
         return blob;
     }
     ```
 
-1.  In the **Main** method, enter the following code at the end of the method to create a variable named *uploadedBlobName* with a value of **graph.svg**:
+1.  In the **main** method, enter the following code at the end of the method to create a variable named *uploadedBlobName* with a value of **graph.svg**:
 
-    ```
-    string uploadedBlobName = "graph.svg";
-    ```
-
-1.  In the **Main** method, enter the following code at the end of the method to invoke the **GetBlobAsync** method, passing in the *containerClient* and *uploadedBlobName* variables as parameters, and to store the result in a variable named *blobClient* of type **BlobClient**:
-
-    ```
-    BlobClient blobClient = await GetBlobAsync(containerClient, uploadedBlobName);
+    ```javascript
+    var uploadedBlobName = "graph.svg";
     ```
 
-1.  In the **Main** method, enter the following code at the end of the method to render the **Uri** property of the *blobClient* variable:
+1.  In the **main** method, enter the following code at the end of the method to invoke the **GetBlobAsync** method, passing in the *containerClient* and *uploadedBlobName* variables as parameters, and to store the result in a variable named *blobClient* of type **BlobClient**:
 
-    ```
-    await Console.Out.WriteLineAsync($"Blob Url:\t{blobClient.Uri}");
+    ```javascript
+     var blobClient = await getBlob(containerClient, uploadedBlobName);
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  In the **main** method, enter the following code at the end of the method to render the **Uri** property of the *blobClient* variable:
 
+    ```javascript
+    console.log(`Blob Url:\t${blobClient.url}`);
     ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
+
+1.  Observe the **main** method, which should now include:
+
+    ```javascript
+    async function main() {
+        // Existing code removed for brevity
         
-        await EnumerateContainersAsync(serviceClient);
+        await enumerateContainers(blobServiceClient);
 
-        string existingContainerName = "raster-graphics";
-        await EnumerateBlobsAsync(serviceClient, existingContainerName);
-        
-        string newContainerName = "vector-graphics";
-        BlobContainerClient containerClient = await GetContainerAsync(serviceClient, newContainerName);
-        
-        string uploadedBlobName = "graph.svg";
-        BlobClient blobClient = await GetBlobAsync(containerClient, uploadedBlobName);
+        var existingContainerName = "raster-graphics";
+        await enumerateBlobs(blobServiceClient, existingContainerName);
 
-        await Console.Out.WriteLineAsync($"Blob Url:\t{blobClient.Uri}");
+        var newContainerName = "vector-graphics";
+        var containerClient = await getContainer(blobServiceClient, newContainerName);
+
+        var uploadedBlobName = "graph.svg";
+        var blobClient = await getBlob(containerClient, uploadedBlobName);
+
+        console.log(`Blob Url:\t${blobClient.url}`);
     }
     ```
 

@@ -2,32 +2,24 @@
 lab:
     title: 'Lab: Implement task processing logic by using Azure Functions'
     az204Module: 'Module 02: Implement Azure Functions'
-    az020Module: 'Module 02: Implement Azure Functions'
-    type: 'Answer Key'
 ---
 
 # Lab: Implement task processing logic by using Azure Functions
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
 Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes after the development of this training content. These changes might cause the lab instructions and lab steps to not match up.
 
-Microsoft updates this training course when the community brings needed changes to our attention; however, because cloud updates occur frequently, you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
+Microsoft updates this training course when the community brings needed changes to our attention; however, because cloud updates occur frequently, you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needSed.**
 
 ## Instructions
 
+In the lab you will build http triggered and schedule triggered functions in-portal. Final Http-triggered function will be triggered from console and retrieve the file from storage account.
+
+![schema](../../images/lab02schema.png)
+
+
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -119,7 +111,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Publish** section, select **Code**.
 
-    1.  In the **Runtime stack** drop-down list, select **.NET Core**.
+    1.  In the **Runtime stack** drop-down list, select **Node.js**.
 
     1.  In the **Region** drop-down list, select the **East US** region.
     
@@ -161,13 +153,10 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  On the **Serverless** blade, select the **funclogic*[yourname]*** function app that you created earlier in this lab.
 
-1.  On the **Function Apps** blade, select the plus sign (**+**) next to the **Functions** drop-down list.
+1.  On the **Function Apps** blade, select the **Functions** and click on plus sign (**+ Add**) next to top.
 
-1.  In the **New Azure Function** quickstart, perform the following actions:
+1.  In the **New  Function** perform the following actions:
     
-    1.  Under the **Choose a Development Environment** header, select **In-Portal**, and then select **Continue**.
-    
-    1.  Under the **Create a Function** header, select **More templates**, and then select **Finish and view templates**.
     
     1.  In the list of templates, select **HTTP trigger**.
     
@@ -179,81 +168,44 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 #### Task 2: Write function code
 
-1.  In the function editor, find the example **run.csx** function script:
+1. When the function is created click on **Code + Test** on left. 
 
-    ```
-    #r "Newtonsoft.Json"
+1.  In the function editor, find the example **index.js** function script:
 
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
+```JavaScript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {
-        log.LogInformation("C# HTTP trigger function processed a request.");
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
 
-        string name = req.Query["name"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-        name = name ?? data?.name;
-
-        return name != null
-            ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-    }
-    ```
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+}
+```
 
 1.  Delete all the example code.
 
-1.  Add the following line of code to import the **Microsoft.AspNetCore.Mvc** namespace:
+1.  Add the following lines of code to the function app:
 
-    ```
-    using Microsoft.AspNetCore.Mvc;
-    ```
+```JavaScript
+module.exports = async function (context, req) {
+    
+    context.log('Received a request');
 
-1.  Add the following line of code to import the **System.Net** namespace:
+    context.res = {
+        body: req.body
+    };
+}
+```
 
-    ```
-    using System.Net;
-    ```
+1.  Select **Save** to save the script. 
 
-1.  Add the following code block to create a new **public static** method named **Run** that returns a variable of type **IActionResult** and that also takes in variables of type **HttpRequest** and **ILogger** as parameters named *req* and *log*:
-
-    ```
-    public static IActionResult Run(HttpRequest req, ILogger log)
-    {
-    }
-    ```
-
-1.  In the **Run** method, enter the following line of code to render a fixed message:
-
-    ```
-    log.LogInformation("Received a request");
-    ```
-
-1.  Enter the following line of code to echo the body of the HTTP request as the HTTP response:
-
-    ```
-    return new OkObjectResult(req.Body);
-    ```
-
-1.  Observe the **run.csx** file, which should now include:
-
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-
-    public static IActionResult Run(HttpRequest req, ILogger log)
-    {
-        log.LogInformation("Received a request");
-
-        return new OkObjectResult(req.Body);
-    }
-    ```
-
-1.  Select **Save** to save the script.
+1.  The function should simply return what you send like echo.
 
 #### Task 3: Test function run in the portal
 
@@ -281,7 +233,10 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  At the open command prompt, enter the following command, and then select Enter to start the **httprepl** tool setting the base Uniform Resource Identifier (URI) to the value of the URL that you copied earlier in this lab.
 
-    ```
+    > You can [download and install](https://docs.microsoft.com/en-us/aspnet/core/web-api/http-repl?view=aspnetcore-3.1&tabs=windows#installation) tool by run command: **dotnet tool install -g Microsoft.dotnet-httprepl**
+
+
+    ```CMD
     httprepl <function-app-url>
     ```
 
@@ -347,9 +302,9 @@ In this exercise, you created a basic function that echoes the content sent via 
 
 1.  On the **Serverless** blade, select the **funclogic*[yourname]*** function app that you created earlier in this lab.
 
-1.  On the **Function Apps** blade, select the plus sign (**+**) next to the **Functions** drop-down list.
+1.  On the **Function Apps** blade, select the **Functions** and click on plus sign (**+ Add**) next to top.
 
-1.  In the **New Azure Function** quickstart, perform the following actions:
+1.  In the **New Function** form, perform the following actions:
         
     1.  In the list of templates, select **Timer trigger**.
     
@@ -433,7 +388,7 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 1.  On the **Resource groups** blade, find and then select the **Serverless** resource group that you created earlier in this lab.
 
-1.  On the **Serverless** blade, select the **funcstor*[yourname]*** storage account that you created earlier in this lab.
+1.  On the **Serverless** blade, select the **funcstor[yourname]*** storage account that you created earlier in this lab.
 
 1.  On the **Storage account** blade, select the **Containers** link in the **Blob service** section.
 
@@ -481,19 +436,15 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 1.  In the **Integrate** section, perform the following actions to create a new input of type **Azure Blob Storage**:
 
-    1.  Select **New Input**.
+    1.  Select **Add Input**.
 
     1.  Select **Azure Blob Storage**.
-
-    1.  Select **Select**.
-
-1.  In the **Azure Blob Storage input** section, perform the following actions:
 
     1.  In the **Blob parameter name** text box, enter the value **json**.
 
     1.  In the **Path** text box, enter the value **content/settings.json**.
 
-    1.  In the **Storage account connection** list, select **AzureWebJobsStorage**.
+    1.  In the **Storage account connection** list , select **AzureWebJobsStorage**.
 
     1.  Select **Save**.
 
@@ -519,69 +470,17 @@ In this exercise, you created a function that runs automatically based on a fixe
 
     1.  Select the **GetSettingInfo** node for that specific function.
 
-1.  In the function editor, find the example **run.csx** function script:
-
-    ```
-    #r "Newtonsoft.Json"
-
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
-
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {
-        log.LogInformation("C# HTTP trigger function processed a request.");
-
-        string name = req.Query["name"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-        name = name ?? data?.name;
-
-        return name != null
-            ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-    }
-    ```
+1.  In the function editor, find the example **index.js** function script:
 
 1.  **Delete** all the example code.
 
-1.  Add the following line of code to import the **Microsoft.AspNetCore.Mvc** namespace:
+1.  Add the following lines of code:
 
-    ```
-    using Microsoft.AspNetCore.Mvc;
-    ```
-
-1.  Add the following line of code to import the **System.Net** namespace:
-
-    ```
-    using System.Net;
-    ```
-
-1.  Add the following code block to create a new **public static** method named **Run** that returns a variable of type **IActionResult** and that also takes in variables of type **HttpRequest** and **string** as parameters named *request* and *json*:
-
-    ```
-    public static IActionResult Run(HttpRequest request, string json)
-    {
-    }
-    ```
-
-1.  In the **Run** method, enter the following line of code to return the content of the *json* parameter as the HTTP response of the function:
-
-    ```
-    return new OkObjectResult(json);
-    ```
-
-1.  Observe the **run.csx** file, which should now include:
-
-    ```
-    using Microsoft.AspNetCore.Mvc;
-    using System.Net;
-
-    public static IActionResult Run(HttpRequest request, string json)
-    {
-        return new OkObjectResult(json);
+    ```JavaScript
+    module.exports = async function (context, req, json) {
+        context.res = {
+            body: json
+        };
     }
     ```
 
@@ -619,7 +518,7 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 1.  Observe the JSON content of the response from the function app, which should now include:
 
-    ```
+    ```JSON
     {
         "version": "0.2.4",
         "root": "/usr/libexec/mews_principal/",
