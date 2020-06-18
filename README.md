@@ -4,7 +4,9 @@ This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-
 
 - [Lab01: Creating Azure App Service Web Apps](/Instructions/Labs/AZ-204_01_lab_ak.md)
 - [Lab02: Implement Azure Functions](/Instructions/Labs/AZ-204_02_lab_ak.md)
-- [Lab03:Retrieving Azure Storage resources and metadata by using the Azure Storage SDK](/Instructions/Labs/AZ-204_03_lab_ak.md)
+- [Lab03: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK](/Instructions/Labs/AZ-204_03_lab_ak.md)
+- Lab04:  coming soon
+- [Lab05: Deploying compute workloads by using images and containers](/Instructions/Labs/AZ-204_04_lab_ak.md)
 
 
 ## What are we doing?

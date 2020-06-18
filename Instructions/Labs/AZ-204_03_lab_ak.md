@@ -680,17 +680,17 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
 1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
 
-    ```
+    ```cmd
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes the final URL to access the blob online. Record the value of this URL to use later in the lab.
 
@@ -728,7 +728,7 @@ In this exercise, you created containers and managed blobs by using the Storage 
 
 1.  At the command prompt, enter the following command, and then select Enter to delete the **StorageMedia** resource group:
 
-    ```
+    ```cmd
     az group delete --name StorageMedia --no-wait --yes
     ```
     

@@ -2,11 +2,9 @@
 lab:
     title: 'Lab: Deploying compute workloads by using images and containers'
     az204Module: 'Module 05: Implement IaaS solutions'
-    type: 'Answer Key'
 ---
 
 # Lab: Deploying compute workloads by using images and containers
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -227,7 +225,7 @@ In this exercise, you used Cloud Shell to create a VM as part of an automated sc
 1.  Enter the following command, and then select Enter to create a new .NET console application in the current directory:
 
     ```
-    dotnet new console --output . --name ipcheck
+    npm init -y
     ```
 
 1.  Enter the following command, and then select Enter to create a new file in the **\~/clouddrive/ipcheck** directory named **Dockerfile**:
@@ -235,7 +233,11 @@ In this exercise, you used Cloud Shell to create a VM as part of an automated sc
     ```
     touch Dockerfile
     ```
+1.  In the same  way create file **index.js** in **\~/clouddrive/ipcheck** directory:
 
+    ```
+    touch index.js
+    ```
 1.  Enter the following command, and then select Enter to open the embedded graphical editor in the context of the current directory:
 
     ```
@@ -244,46 +246,44 @@ In this exercise, you used Cloud Shell to create a VM as part of an automated sc
 
 #### Task 2: Create and test a .NET application
 
-1.  In the graphical editor, find the FILES pane, and then open the **Program.cs** file to open it in the editor.
+1.  In the graphical editor, find the FILES pane, and then open the **index.js** file to open it in the editor.
 
-1.  Delete the entire contents of the **Program.cs** file.
-
-1.  Copy and paste the following code into the **Program.cs** file:
+1.  Run the following command form the console to install required package.
 
     ```
-    public class Program
-    {
-        public static void Main(string[] args)
-        {        
-            // Check if network is available
-            if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
-            {
-                System.Console.WriteLine("Current IP Addresses:");
+    npm install os
+    ```
 
-                // Get host entry for current hostname
-                string hostname = System.Net.Dns.GetHostName();
-                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry(hostname);
-                
-                // Iterate over each IP address and render their values
-                foreach(System.Net.IPAddress address in host.AddressList)
-                {
-                    System.Console.WriteLine($"\t{address}");
+1.  Copy and paste the following code into the **index.js** file:
+
+    ```javascript
+
+    const os = require('os');
+
+    function main() {
+        var ifaces = os.networkInterfaces();
+        console.log('Current IP Addresses:');
+        Object.keys(ifaces).forEach(function (ifname) {
+            var alias = 0;
+            ifaces[ifname].forEach(function (iface) {
+                if ('IPv4' !== iface.family || iface.internal !== false) {
+                    // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                    return;
                 }
-            }
-            else
-            {
-                System.Console.WriteLine("No Network Connection");
-            }
-        }
+                console.log(iface.address);
+            });
+        });
     }
+
+    main()
     ```
 
-1.  Save the **Program.cs** file by using the menu in the graphical editor or the Ctrl+S keyboard shortcut.  Don't close the graphical editor.
+1.  Save the **index.js** file by using the menu in the graphical editor or the Ctrl+S keyboard shortcut.  Don't close the graphical editor.
 
 1.  Back at the command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node index.js
     ```
 
 1.  Find the results of the run. At least one IP address should be listed for the Cloud Shell instance.
