@@ -8,6 +8,8 @@ This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-
 - Lab04:  coming soon
 - [Lab05: Deploying compute workloads by using images and containers](/Instructions/Labs/AZ-204_05_lab_ak.md)
 - [Lab06: Authenticating to and querying Microsoft Graph by using MSAL SDK](/Instructions/Labs/AZ-204_06_lab_ak.md)
+- [Lab07: Access resource secrets more securely across services](/Instructions/Labs/AZ-204_07_lab_ak.md)
+
 
 ## What are we doing?
 

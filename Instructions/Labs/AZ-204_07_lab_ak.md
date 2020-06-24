@@ -2,8 +2,6 @@
 lab:
     title: 'Lab: Access resource secrets more securely across services'
     az204Module: 'Module 07: Implement secure cloud solutions'
-    az020Module: 'Module 07: Implement secure cloud solutions'
-    type: 'Answer Key'
 ---
 
 # Lab: Access resource secrets more securely across services
@@ -18,16 +16,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -71,7 +59,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Resource group** section, select **Create new**, enter **SecureFunction**, and then select **OK**.
 
-    1.  In the **Storage account name** text box, enter **securestor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **securestor[yourname]**.
 
     1.  In the **Location** drop-down list, select the **(US) East US** region.
 
@@ -125,7 +113,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **Use existing**, and then select **SecureFunction** in the list.
     
-    1.  In the **Key vault name** text box, enter **securevault*[yourname]***.
+    1.  In the **Key vault name** text box, enter **securevault[yourname]**.
 
     1.  In the **Region** drop-down list, select the **East US** region.
         
@@ -161,13 +149,13 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **Use existing**, and then select **SecureFunction** in the list.
     
-    1.  In the **Function app name** text box, enter **securefunc*[yourname]***.
+    1.  In the **Function app name** text box, enter **securefunc[yourname]**.
 
     1.  In the **Publish** section, select **Code**.
 
-    1.  In the **Runtime stack** drop-down list, select **.NET Core**.
+    1.  In the **Runtime stack** drop-down list, select **Node.js**.
 
-    1.  In the **Version** drop-down list, select **3.1**.
+    1.  In the **Version** drop-down list, select **12**.
 
     1.  In the **Region** drop-down list, select the **East US** region.
     
@@ -175,7 +163,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  From the **Hosting** tab, perform the following actions:
 
-    1.  In the **Storage account** drop-down list, select the **securestor*[yourname]*** storage account that you created earlier in this lab.
+    1.  In the **Storage account** drop-down list, select the **securestor[yourname]** storage account that you created earlier in this lab.
 
     1.  In the **Operating System** section, select **Windows**.
 
@@ -207,7 +195,7 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securefunc*[yourname]*** function app that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securefunc[yourname]** function app that you created earlier in this lab.
 
 1.  From the **Function Apps** blade, select the **Platform features** tab.
 
@@ -227,7 +215,7 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securevault*[yourname]*** key vault that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securevault[yourname]** key vault that you created earlier in this lab.
 
 1.  From the **Key Vault** blade, select the **Secrets** link in the **Settings** section.
 
@@ -271,7 +259,7 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securevault*[yourname]*** key vault that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securevault[yourname]** key vault that you created earlier in this lab.
 
 1.  From the **Key Vault** blade, select the **Access policies** link in the **Settings** section.
 
@@ -281,7 +269,7 @@ In this exercise, you created all the resources that you'll use for this lab.
     
     1.  Select the **Select principal** link.
     
-    1.  From the **Principal** blade, find and then select the service principal named **securefunc*[yourname]***, and then select **Select**.
+    1.  From the **Principal** blade, find and then select the service principal named **securefunc[yourname]**, and then select **Select**.
 
         > **Note**: The system-assigned managed identity you created earlier in this lab will have the same name as the Azure Function resource.
     
@@ -311,7 +299,7 @@ In this exercise, you created a server-assigned managed service identity for you
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securefunc*[yourname]*** function app that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securefunc[yourname]** function app that you created earlier in this lab.
 
 1.  From the **Function Apps** blade, select the **Platform features** tab.
 
@@ -343,7 +331,7 @@ In this exercise, you created a server-assigned managed service identity for you
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securefunc*[yourname]*** function app that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securefunc[yourname]** function app that you created earlier in this lab.
 
 1.  From the **Function App** blade, select the plus sign (**+**) next to the **Functions** drop-down list.
 
@@ -361,44 +349,17 @@ In this exercise, you created a server-assigned managed service identity for you
     
     1.  In the **New Function** pop-up window, select **Create**.
 
-1.  In the function editor, find the example function script:
-
-    ```
-    #r "Newtonsoft.Json"
-
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
-
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {
-
-        log.LogInformation("C# HTTP trigger function processed a request.");
-
-        string name = req.Query["name"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-        name = name ?? data?.name;
-
-        return name != null
-            ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            : new BadRequestObjectResult("Please pass a name from the query string or in the request body");
-    }
-    ```
+1.  In the function editor, find the example function script. 
 
 1.  **Delete** all the example code, and then in the function editor, copy and paste the following placeholder function:
 
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
+    ```javascript
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
 
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-        return new OkObjectResult("Test Successful");
+        context.res = {
+            body: 'Test Successful'
+        };
     }
     ```
 
@@ -412,50 +373,49 @@ In this exercise, you created a server-assigned managed service identity for you
 
 #### Task 3: Test the Key Vault-derived application setting
 
-1.  Delete the existing code within the **Run** method of the script.
+1.  Observe the **index.js** file method, which should now include:
 
-1.  Observe the **Run** method, which should now include:
+    ```javascript
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
 
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-
+        context.res = {
+            body: 'Test Successful'
+        };
     }
     ```
 
-1.  Add the following line of code to get the value of the **StorageConnectionString** application setting by using the **Environment.GetEnvironmentVariable** method:
+1.  Add the following line of code to get the value of the **StorageConnectionString** application setting by using the **process.env** collection:
 
-    ```
-    string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
+    ```javascript
+    var connectionString = process.env['StorageConnectionString'];
     ```
 
-1.  Add the following line of code to return the value of the *connectionString* variable by using the **OkObjectResult** class constructor:
+1.  Add the output lines of code to return the value of the *connectionString* variable: 
    
-    ```
-    return new OkObjectResult(connectionString);
+    ```javascript
+        context.res = {
+            body: connectionString
+        };
     ```
     
-1.  Observe the **Run** method, which should now include:
+1.  Observe the **index.js** file, which should now include:
 
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
+    ```javascript
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
 
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-        string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-        return new OkObjectResult(connectionString);
+        var connectionString = process.env['StorageConnectionString'];
+
+        context.res = {
+            body: connectionString
+        };
     }
     ```
 
 1.  Select **Save and run** to save the script and perform a test of the function.
 
 1.  Find the **Output** text box in the Test pane. You should now notice the connection string returned from the function.
-
-    > **Note**: You may notice a warning message. This is simply a C# compiler warning that says you are using an asynchronous method without asynchronous code. This warning will no longer show up later in the lab.
 
 #### Review
 
@@ -469,7 +429,7 @@ In this exercise, you used a service identity to read the value of a secret stor
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securestor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securestor[yourname]** storage account that you created earlier in this lab.
 
 1.  From the **Storage account** blade, select the **Containers** link in the **Blob service** section.
 
@@ -529,151 +489,166 @@ In this exercise, you used a service identity to read the value of a secret stor
 
 1.  From the **Resource groups** blade, find and then select the **SecureFunction** resource group that you created earlier in this lab.
 
-1.  From the **SecureFunction** blade, select the **securefunc*[yourname]*** function app that you created earlier in this lab.
+1.  From the **SecureFunction** blade, select the **securefunc[yourname]** function app that you created earlier in this lab.
 
-1.  From the **Function App** blade, find and then select the existing **FileParser** function to open the editor for the function.
+1.  From the **Function App** blade, find and then select the **Console** to open consol for the function.
 
-    > **Note**: You might need to expand the **Functions** option in the menu of the blade.
+1.  Execute following command to generate file `package.json`:
 
-1.  In the editor, select **View files** to open the tab.
+    ```cmd
+    npm init -y
+    ```
+1.  The next command should add Azure Blob npm package:
 
-1.  From the **View files** tab, select **Add**.
+    ```cmd
+    npm install @azure/storage-blob
+    ```
+1.  Return back to the function code. Add the following line with reference to package in the first line of the file **index.js**
 
-1.  In the **File name** dialog box, enter **function.proj**, and then select Enter, which displays an empty code editor.
-
-1.  In the editor, insert this configuration content:
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk">
-        <PropertyGroup>
-            <TargetFramework>netstandard2.0</TargetFramework>
-        </PropertyGroup>
-        <ItemGroup>
-            <PackageReference Include="Azure.Storage.Blobs" Version="12.4.0" />
-        </ItemGroup>
-    </Project>
+    ```javascript
+    const { BlobServiceClient } = require('@azure/storage-blob');
     ```
 
-1.  In the editor, select **Save** to persist your configuration changes.
+1.  Observe the **index.js** file, which should now include:
 
-    > **Note**: This .proj file contains the NuGet package reference necessary to import the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/12.4.0) package.
+    ```javascript
+    const { BlobServiceClient } = require('@azure/storage-blob');
 
-1.  Select the **run.csx** file to return to the editor for the **FileParser** function.
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
 
-1.  Minimize the **View files** tab.
+        var connectionString = process.env['StorageConnectionString'];
 
-    > **Note**: You can minimize the tab by selecting the arrow associated with the tab header.
-
-1.  Within the editor, delete the existing code in the **Run** method of the script.
-
-1.  In the code file, add the following line of code to create a **using** directive for the **Azure.Storage** namespace:
-
-    ```
-    using Azure.Storage;
-    ```
-
-1.  In the code file, add the following line of code to create a **using** directive for the **Azure.Storage.Blobs** namespace:
-
-    ```
-    using Azure.Storage.Blobs;
-    ```
-
-1.  Add the following line of code to create a **using** directive for the **Azure.Storage.Blobs.Models** namespace:
-
-    ```
-    using Azure.Storage.Blobs.Models;
-    ```
-
-1.  Observe the **Run** method, which should now include:
-
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
-
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-
+        context.res = {
+            body: connectionString
+        };
     }
     ```
+
+1. To test your changes you can run the function again. It should return the same output as previously. It should not return any errors. If you get error check the steps of creation `package.js` file and include required npm package.
 
 #### Task 3: Write storage account code
 
-1.  Add the following line of code in the **Run** method to get the value of the **StorageConnectionString** application setting by using the **Environment.GetEnvironmentVariable** method:
+1.  Add the following line of code in the function the value of the **StorageConnectionString** application setting will be retrieved by using the **process.env** method:
 
-    ```
-    string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-    ```
-
-1.  Add the following line of code to create a new instance of the **BlobServiceClient** class by passing in your *connectionString* variable to the constructor:
-
-    ```
-    BlobServiceClient serviceClient = new BlobServiceClient(connectionString);
+    ```javascript
+    var connectionString = process.env['StorageConnectionString'];
     ```
 
-1.  Add the following line of code to use the **BlobServiceClient.GetBlobContainerClient** method, while passing in the **drop** container name to create a new instance of the **BlobContainerClient** class that references the container that you created earlier in this lab:
+1.  Add the following line of code to create a new instance of the class by call **BlobServiceClient.fromConnectionString**  method and passing your *connectionString* variable to the method:
 
-    ```
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient("drop");
+    ```javascript
+    var blobServiceClient = await BlobServiceClient.fromConnectionString(connectionString);
     ```
 
-1.  Add the following line of code to use the **BlobContainerClient.GetBlobClient** method, while passing in the **records.json** blob name to create a new instance of the **BlobClient** class that references the blob that you uploaded earlier in this lab:
+1.  Add the following line of code to use the **BlobServiceClient.getContainerClient** method, while passing in the **drop** container name to create a new instance of the **BlobContainerClient** class that references the container that you created earlier in this lab:
 
+    ```javascript
+    var containerClient = await blobServiceClient.getContainerClient("drop");
     ```
-    BlobClient blobClient = containerClient.GetBlobClient("records.json");
+
+1.  Add the following lines of code to use the **BlobContainerClient.exists** method, while passing reference to  **drop** container to check if the container exists:
+
+    ```javascript
+        if (await containerClient.exists()) {
+             context.res = {
+                body: `container found`
+            };
+        }
     ```
     
-1.  Observe the **Run** method, which should now include:
+1.  Observe the **index.js** file, which should now include:
 
-    ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
+    ```javascript
+    const { BlobServiceClient } = require('@azure/storage-blob');
 
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-        string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-        BlobServiceClient serviceClient = new BlobServiceClient(connectionString);
-        BlobContainerClient containerClient = serviceClient.GetBlobContainerClient("drop");
-        BlobClient blobClient = containerClient.GetBlobClient("records.json");
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
+
+        var connectionString = process.env['StorageConnectionString'];
+        var blobServiceClient = await BlobServiceClient.fromConnectionString(connectionString);
+        var containerClient = await blobServiceClient.getContainerClient("drop");
+        if (await containerClient.exists()) {
+             context.res = {
+                body: `container found`
+            };
+        }
     }
     ```
+1. You can test the function again. IF the container found in the blob you will get appropriate message. If you get empty response or error you should check if the container exists.
 
 #### Task 4: Download a blob
 
-1.  Add the following line of code to use the **BlobClient.DownloadAsync** method to download the contents of the referenced blob asynchronously and store the result in a variable named *response*:
+1.  Add the following line of code to use the **BlobServiceClient.getContainerClient()** method, while passing in the **records.json** blob name to create a new instance of the **BlockBlobClient** class that references the blob that you uploaded earlier in this lab:
 
-    ```
-    var response = await blobClient.DownloadAsync();
-    ```
-
-1.  Add the following line of code to return the various content stored in the *content* variable by using the **FileStreamResult** class constructor:
-
-    ```
-    return new FileStreamResult(response?.Value?.Content, response?.Value?.ContentType);
+    ```javascript
+    var blockBlobClient = containerClient.getBlockBlobClient('records.json');
     ```
 
-1.  Observe the **Run** method, which should now include:
+1.  Add the following line of code to use the **BlockBlobClient.download** method to download the contents of the referenced blob asynchronously and store the result in a variable named *downloadBlockBlobResponse*:
 
+    ```javascript
+    var downloadBlockBlobResponse = await blockBlobClient.download(0);
     ```
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
 
-    public static async Task<IActionResult> Run(HttpRequest req)
-    {
-        string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-        BlobServiceClient serviceClient = new BlobServiceClient(connectionString);
-        BlobContainerClient containerClient = serviceClient.GetBlobContainerClient("drop");
-        BlobClient blobClient = containerClient.GetBlobClient("records.json");
-        var response = await blobClient.DownloadAsync();
-        return new FileStreamResult(response?.Value?.Content, response?.Value?.ContentType);
+1.  Add the following line of code to return the various content stored in the *downloadBlockBlobResponse* variable by using the additional **streamToString** function, you can paste the code above the main function:
+
+    ```javascript
+    async function streamToString(readableStream) {
+        return new Promise((resolve, reject) => {
+            const chunks = [];
+            readableStream.on('data', (data) => {
+                chunks.push(data.toString());
+            });
+            readableStream.on('end', () => {
+                resolve(chunks.join(''));
+            });
+            readableStream.on('error', reject);
+        });
+    }
+    ```
+
+1. Finlay you need to add call to the streamToString function from the main function and return content as response:
+  
+    ```javascript
+    var filecontent = await streamToString(downloadBlockBlobResponse.readableStreamBody);
+    context.res = {
+        body: filecontent
+    };
+    ```   
+
+1.  Observe the final code:
+
+    ```javascript
+    const { BlobServiceClient } = require('@azure/storage-blob');
+    
+    async function streamToString(readableStream) {
+        return new Promise((resolve, reject) => {
+            const chunks = [];
+            readableStream.on('data', (data) => {
+                chunks.push(data.toString());
+            });
+            readableStream.on('end', () => {
+                resolve(chunks.join(''));
+            });
+            readableStream.on('error', reject);
+        });
+    }
+
+    module.exports = async function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
+
+        var connectionString = process.env['StorageConnectionString'];
+        var blobServiceClient = await BlobServiceClient.fromConnectionString(connectionString);
+        var containerClient = await blobServiceClient.getContainerClient("drop");
+        if (await containerClient.exists()) {
+            var blockBlobClient = containerClient.getBlockBlobClient('records.json');
+            var downloadBlockBlobResponse = await blockBlobClient.download(0);
+            var filecontent = await streamToString(downloadBlockBlobResponse.readableStreamBody);
+            context.res = {
+                body: filecontent
+            };
+        }
     }
     ```
 
@@ -683,7 +658,7 @@ In this exercise, you used a service identity to read the value of a secret stor
 
 #### Review
 
-In this exercise, you used C\# code to access a storage account, and then download the contents of a blob.
+In this exercise, you used Node.js code to access a storage account, and then download the contents of a blob.
 
 ### Exercise 5: Clean up your subscription 
 
