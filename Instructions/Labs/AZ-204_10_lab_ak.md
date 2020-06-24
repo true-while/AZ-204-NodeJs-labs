@@ -252,9 +252,9 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 In this exercise, you created a new subscription, validated its registration, and then recorded the credentials required to publish a new event to the topic.
 
-### Exercise 3: Publish Event Grid events from .NET
+### Exercise 3: Publish Event Grid events from Node.js
 
-#### Task 1: Create a .NET project
+#### Task 1: Create a Node.js project
 
 1.  On the **Start** screen, select the **Visual Studio Code** tile.
 
@@ -513,7 +513,7 @@ In this exercise, you created a new subscription, validated its registration, an
 
 #### Review
 
-In this exercise, you published new events to your Event Grid topic using a .NET console application.
+In this exercise, you published new events to your Event Grid topic using a console application.
 
 ### Exercise 4: Clean up your subscription 
 
