@@ -2,12 +2,9 @@
 lab:
     title: 'Lab: Publishing and subscribing to Event Grid events'
     az204Module: 'Module 10: Develop event-based solutions'
-    az020Module: 'Module 09: Develop event-based solutions'
-    type: 'Answer Key'
 ---
     
 # Lab: Publishing and subscribing to Event Grid events
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -18,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -115,7 +102,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  On the **Create Topic** blade, perform the following actions:
 
-    1.  In the **Name** text box, enter **hrtopic*[yourname]***.
+    1.  In the **Name** text box, enter **hrtopic[yourname]**.
     
     1.  In the **Resource group** section, select **Create new**, enter **PubSubEvents**, and then select **OK**.
 
@@ -147,7 +134,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **PubSubEvents**.
 
-    1.  In the **Name** text box, enter **eventviewer*[yourname]***.
+    1.  In the **Name** text box, enter **eventviewer[yourname]**.
 
     1.  In the **Publish** section, select **Docker Container**.
 
@@ -193,7 +180,7 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
 
-1.  On the **PubSubEvents** blade, select the **eventviewer*[yourname]*** web app that you created earlier in this lab.
+1.  On the **PubSubEvents** blade, select the **eventviewer[yourname]** web app that you created earlier in this lab.
 
 1.  On the **App Service** blade, in the **Settings** category, select the **Properties** link.
 
@@ -215,7 +202,7 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
 
-1.  On the **PubSubEvents** blade, select the **hrtopic*[yourname]*** Event Grid topic that you created earlier in this lab.
+1.  On the **PubSubEvents** blade, select the **hrtopic[yourname]** Event Grid topic that you created earlier in this lab.
 
 1.  On the **Event Grid Topic** blade, select **+ Event Subscription**.
 
@@ -253,7 +240,7 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
 
-1.  On the **PubSubEvents** blade, select the **hrtopic*[yourname]*** Event Grid topic that you created earlier in this lab.
+1.  On the **PubSubEvents** blade, select the **hrtopic[yourname]** Event Grid topic that you created earlier in this lab.
 
 1.  On the **Event Grid Topic** blade, record the value of the **Topic Endpoint** field. You'll use this value later in the lab.
 
@@ -277,265 +264,236 @@ In this exercise, you created a new subscription, validated its registration, an
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to create a new .NET project named **EventPublisher** in the current folder:
+1.  At the open command prompt, enter the following command, and then select Enter to create a new project named **EventPublisher** in the current folder:
 
     ```
-    dotnet new console --name EventPublisher --output .
+    npm init -y
     ```
 
-    > **Note**: The **dotnet new** command will create a new **console** project in a folder with the same name as the project.
+    > **Note**: The **npm init -y** command will create a new **package.json** file in a folder with the default name as project.
 
-1.  At the command prompt, enter the following command, and then select Enter to import version 3.2.0 of **Microsoft.Azure.EventGrid** from NuGet:
+1.  At the command prompt, enter the following command, and then select Enter to import package **azure-eventgrid** from npm:
 
-    ```
-    dotnet add package Microsoft.Azure.EventGrid --version 3.2.0
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.Azure.EventGrid** package from NuGet. For more information, go to [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/3.2.0).
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
+    ```javascript
+    npm install azure-eventgrid
+    npm install ms-rest-azure
+    npm install url
+    npm install uuid
     ```
 
-1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
+1.  Create new file named **index.js** in the project folder.
+
+1.  Add the following line of code to import the **azure-eventgrid**, and **ms-rest-azure** packages imported from npm:
+
+    ```javascript
+    const eventGrid = require('azure-eventgrid');
+    const msRestAzure = require('ms-rest-azure');
+    const { v1: uuidv1 } = require('uuid');
+    const url = require('url');
+    ```
+
+1.  Add following code in **index.js** file to build new application entry point.
+
+    ```javascript
+    function main() {
+
+    }
+
+    main();
+    ```
+
+1.  At the command prompt, enter the following command, and then select Enter to run Node.js console application:
+
+    ```
+    node .\index.js
+    ```
+
+1.  No output will be return from the application, but error might ocure if the package not properly installed. Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
 #### Task 2: Modify the Program class to connect to Event Grid
 
-1.  In the Explorer pane of the **Visual Studio Code** window, open the **Program.cs** file.
-
-1.  On the code editor tab for the **Program.cs** file, delete all the code in the existing file.
-
-1.  Add the following line of code to import the **Microsoft.Azure.EventGrid**, and **Microsoft.Azure.EventGrid.Models** namespaces from the **Microsoft.Azure.EventGrid** package imported from NuGet:
-
-    ```
-    using Microsoft.Azure.EventGrid;
-    using Microsoft.Azure.EventGrid.Models;
-    ```
+1.  In the Explorer pane of the **Visual Studio Code** window, open the **index.js** file.
     
-1.  Add the following lines of code to add **using** directives for the built-in namespaces that will be used in this file:
+1.  In the **index.js** file, enter the following line of code to create a new string constant named **topicEndpoint** after the packages import:
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    ```
-
-1.  Enter the following code to create a new **Program** class:
-
-    ```
-    public class Program
-    {
-    }
-    ``` 
-
-1.  In the **Program** class, enter the following line of code to create a new string constant named **topicEndpoint**:
-
-    ```
-    private const string topicEndpoint = "";
+    ```javascript
+    const topicEndPoint = '';
     ```
 
 1.  Update the **topicEndpoint** string constant by setting its value to the **Topic Endpoint** of the Event Grid topic that you recorded earlier in this lab.
 
-1.  In the **Program** class, enter the following line of code to create a new string constant named **topicKey**:
+1.  In the **index.js** file, enter the following line of code to create a new string constant named **topicKey**:
 
-    ```
-    private const string topicKey = "";
+    ```javascript
+    const topicKey = ''; 
     ```
 
 1.  Update the **topicKey** string constant by setting its value to the **Key** of the Event Grid topic that you recorded earlier in this lab.
 
-1.  In the **Program** class, enter the following code to create a new asynchronous **Main** method:
+1.  Observe the **index.js** file, which should now include the following lines of code:
 
-    ```
-    public static async Task Main(string[] args)
-    {
+    ```javascript
+    const eventGrid = require('azure-eventgrid');
+    const msRestAzure = require('ms-rest-azure');
+    const { v1: uuidv1 } = require('uuid');
+    const url = require('url');
+
+    const topicEndPoint = '<your endpoint url>';
+    const topicKey = '<your key>'; 
+
+
+    function main() {
     }
-    ```
 
-1.  Observe the **Program.cs** file, which should now include the following lines of code:
-
-    ```
-    using Microsoft.Azure.EventGrid;
-    using Microsoft.Azure.EventGrid.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
-    public class Program
-    {
-        private const string topicEndpoint = "<topic-endpoint>";
-        private const string topicKey = "<topic-key>";
-        
-        public static async Task Main(string[] args)
-        {
-        }
-    }
+    main();
     ```
 
 #### Task 3: Publish new events
 
-1.  In the **Main** method, perform the following actions to publish a list of events to your topic endpoint:
+1.  Add the following line of code to create a new variable named **topicCreds** of type **[TopicCredentials]()**, using the **topicKey** string constant as a constructor parameter:
 
-    1.  Add the following line of code to create a new variable named **credentials** of type **[TopicCredentials]()**, using the **topicKey** string constant as a constructor parameter:
-
-        ```
-        TopicCredentials credentials = new TopicCredentials(topicKey);
+        ```javascript
+        var topicCreds = new msRestAzure.TopicCredentials(topicKey);
         ```
 
-    1.  Add the following line of code to create a new variable named **client** of type **[EventGridClient]()**, using the **credentials** variable as a constructor parameter:
+1.  Add the following line of code to create a new variable named **egClient** of type **[EventGridClient]()**, using the **topicCreds** variable as a constructor parameter:
 
+        ```javascript
+        var egClient = new eventGrid(topicCreds);
         ```
-        EventGridClient client = new EventGridClient(credentials);
-        ```
+1.  Add the following line of code to create a new variable named **topicHostName**, using the **url.parse** method and extract the host name:
 
-    1.  Add the following line of code to create a new variable named **events** of type **List<EventGridEvent>**.
-
-        ```
-        List<EventGridEvent> events = new List<EventGridEvent>();
-        ```
-
-    1.  Add the following lines of code to create a new variable named **firstPerson** of an anonymous type:
-
-        ```
-        var firstPerson = new
-        {
-            FullName = "Alba Sutton",
-            Address = "4567 Pine Avenue, Edison, WA 97202"
-        };
+        ```javascript   
+        var topicUrl = url.parse(topicEndPoint, true);
+        var topicHostName = topicUrl.host;
         ```
 
-    1.  Add the following block of code to create a new variable named **firstEvent** of type **EventGridEvent**, and then populate the **EventGridEvent** variable with sample data:
+1.  Add the following line of code to create a new variable named **events** of type array.
 
-        ```
-        EventGridEvent firstEvent = new EventGridEvent
-        {
-            Id = Guid.NewGuid().ToString(),
-            EventType = "Employees.Registration.New",
-            EventTime = DateTime.Now,
-            Subject = $"New Employee: {firstPerson.FullName}",
-            Data = firstPerson,
-            DataVersion = "1.0.0"
-        };
+        ```javascript  
+        var events = [];
         ```
 
-    1.  Add the following line of code to add the **firstEvent** instance to your **events** list:
+1.  Add the following lines of code to create a new variable named **firstPerson** of an anonymous type:
 
-        ```
-        events.Add(firstEvent);
-        ```
-
-    1.  Add the following line of code to create a new variable named **secondPerson** of an anonymous type:
-
-        ```
-        var secondPerson = new
-        {
-            FullName = "Alexandre Doyon",
-            Address = "456 College Street, Bow, WA 98107"
-        };
+        ```javascript
+        var firstPerson = {
+                FullName : 'Alba Sutton',
+                Address : '4567 Pine Avenue, Edison, WA 97202'
+            };
         ```
 
-    1.  Add the following block of code to create a new variable named **secondEvent** of type **EventGridEvent**, and then populate the **EventGridEvent** variable with sample data:
+1.  Add the following block of code to create a first event of type **EventGridEvent**, and then push the event to the **events** array:
 
-        ```
-        EventGridEvent secondEvent = new EventGridEvent
-        {
-            Id = Guid.NewGuid().ToString(),
-            EventType = "Employees.Registration.New",
-            EventTime = DateTime.Now,
-            Subject = $"New Employee: {secondPerson.FullName}",
-            Data = secondPerson,
-            DataVersion = "1.0.0"
-        };
-        ```
-
-    1.  Add the following line of code to add the **secondEvent** instance to your **events** list:
-
-        ```
-        events.Add(secondEvent);
+        ```javascript
+        events.push(
+            {
+                id : uuidv1(),
+                eventType : 'Employees.Registration.New',
+                eventTime : new Date().toISOString(),
+                subject : `New Employee: ${firstPerson.FullName}`,
+                data : firstPerson,
+                dataVersion : '1.0.0'
+            });
         ```
 
-    1.  Add the following line of code to obtain the **Hostname** from the **topicEndpoint** variable:
+1.  Add the following line of code to create a new variable named **secondPerson** of an anonymous type:
 
-        ```
-        string topicHostname = new Uri(topicEndpoint).Host;
-        ```
-
-    1.  Add the following line of code to invoke the **[EventGridClient.PublishEventsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventgrid.eventgridclient.publisheventswithhttpmessagesasync)** method using the **topicHostname** and **events** variables as parameters:
-
-        ```
-        await client.PublishEventsAsync(topicHostname, events);
+        ```javascript
+        var secondPerson = {
+                FullName : 'Alexandre Doyon',
+                Address : '456 College Street, Bow, WA 98107'
+            };
         ```
 
-    1.  Add the following line of code to render the **Events published** message to the console:
+1.   Add the following block of code to create a second event of type **EventGridEvent**, and then push the event to the **events** array:
 
+        ```javascript
+        events.push(
+            {
+                id : uuidv1(),
+                eventType : 'Employees.Registration.New',
+                eventTime : new Date().toISOString(),
+                subject : `New Employee: ${secondPerson.FullName}`,
+                data : secondPerson,
+                dataVersion : '1.0.0'
+            });  
         ```
-        Console.WriteLine("Events published");
+
+1.  Add the following line of code to invoke the **[EventGridClient.PublishEvents]** method using the **topicHostname** and **events** variables as parameters:
+
+        ```javascript
+        egClient.publishEvents(topicHostName, events)
         ```
 
-1.  Review the **Main** method, which should now include:
+1.  Add the following line of code to render the **Events published** message to the console if the events successful published in method then:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        TopicCredentials credentials = new TopicCredentials(topicKey);
-        EventGridClient client = new EventGridClient(credentials);
+        ```javascript
+        .then((result) => { 
+                return Promise.resolve(console.log('Events published'));
+            }).catch((err) => {
+                console.log('An error ocurred ' + err);
+            });
+        ```
 
-        List<EventGridEvent> events = new List<EventGridEvent>();
+1.  Review the **main** function, which should now include:
 
-        var firstPerson = new
-        {
-            FullName = "Alba Sutton",
-            Address = "4567 Pine Avenue, Edison, WA 97202"
-        };
+    ```javascript
+    function main() {
 
-        EventGridEvent firstEvent = new EventGridEvent
-        {
-            Id = Guid.NewGuid().ToString(),
-            EventType = "Employees.Registration.New",
-            EventTime = DateTime.Now,
-            Subject = $"New Employee: {firstPerson.FullName}",
-            Data = firstPerson,
-            DataVersion = "1.0.0"
-        };
-        events.Add(firstEvent);
+        var events = [];
 
-        var secondPerson = new
-        {
-            FullName = "Alexandre Doyon",
-            Address = "456 College Street, Bow, WA 98107"
-        };
-        
-        EventGridEvent secondEvent = new EventGridEvent
-        {
-            Id = Guid.NewGuid().ToString(),
-            EventType = "Employees.Registration.New",
-            EventTime = DateTime.Now,
-            Subject = $"New Employee: {secondPerson.FullName}",
-            Data = secondPerson,
-            DataVersion = "1.0.0"
-        };
-        events.Add(secondEvent);
+        var firstPerson = {
+                FullName : 'Alba Sutton',
+                Address : '4567 Pine Avenue, Edison, WA 97202'
+            };
+    
+        events.push(
+            {
+                id : uuidv1(),
+                eventType : 'Employees.Registration.New',
+                eventTime : new Date().toISOString(),
+                subject : `New Employee: ${firstPerson.FullName}`,
+                data : firstPerson,
+                dataVersion : '1.0.0'
+            });
 
-        string topicHostname = new Uri(topicEndpoint).Host;
-        await client.PublishEventsAsync(topicHostname, events);
+        var secondPerson = {
+                FullName : 'Alexandre Doyon',
+                Address : '456 College Street, Bow, WA 98107'
+            };
 
-        Console.WriteLine("Events published");
+        events.push(
+            {
+                id : uuidv1(),
+                eventType : 'Employees.Registration.New',
+                eventTime : new Date().toISOString(),
+                subject : `New Employee: ${secondPerson.FullName}`,
+                data : secondPerson,
+                dataVersion : '1.0.0'
+            });    
+
+
+        egClient.publishEvents(topicHostName, events).then((result) => {
+            return Promise.resolve(console.log('Events published'));
+        }).catch((err) => {
+            console.log('An error ocurred ' + err);
+        });
+
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\10\\Solution\\EventPublisher** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\10\\Solution\\EventPublisher** folder.
 
 1.  Observe the success message output from the currently running console application.
 
@@ -548,6 +506,8 @@ In this exercise, you created a new subscription, validated its registration, an
 1.  Review the **Employees.Registration.New** events that were created by your console application.
 
 1.  Select any of the events and review its JSON content.
+
+1.  If the events is not appears on the page, refresh the page and run the application again.
 
 1.  Return to the Azure portal.
 

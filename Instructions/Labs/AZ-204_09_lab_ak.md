@@ -2,11 +2,9 @@
 lab:
     title: 'Lab: Automate business processes with Logic Apps'
     az204Module: 'Module 09: Develop App Service Logic Apps'
-    type: 'Answer Key'
 ---
     
 # Lab: Automate business processes with Logic Apps
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -17,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -66,7 +54,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  From the **API Management Service** blade, perform the following actions:
     
-    1.  In the **Name** text box, enter **prodapim*[yourname]***.
+    1.  In the **Name** text box, enter **prodapim[yourname]**.
     
     1.  Leave the **Subscription** text box set to its default value.
     
@@ -104,7 +92,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** list, select **Use existing**, and then select the **AutomatedWorkflow** group you created earlier in the lab.
         
-    1.  In the **Logic App name** field, enter **prodflow*[yourname]***.
+    1.  In the **Logic App name** field, enter **prodflow[yourname]***.
 
     1.  In the **Select the location** section, select **Region**.
 
@@ -138,7 +126,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select the **AutomatedWorkflow** group you created earlier in the lab.
     
-    1.  In the **Storage account name** text box, enter **prodstor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **prodstor[yourname]***.
     
     1.  In the **Location** list, select the **(US) East US** region.
     
@@ -164,7 +152,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  On the **Resource groups** blade, find and then select the **AutomatedWorkflow** resource group that you created earlier in this lab.
 
-1.  On the **AutomatedWorkflow** blade, select the **prodstor*[yourname]*** storage account that you created earlier in this lab.
+1.  On the **AutomatedWorkflow** blade, select the **prodstor[yourname]** storage account that you created earlier in this lab.
 
 1.  On the **Storage account** blade, in the **File service** section, select the **File shares** link.
 
@@ -214,7 +202,7 @@ In this exercise, you created all the resources that you'll use for this lab.
 
 1.  On the **Resource groups** blade, select the **AutomatedWorkflow** resource group that you created earlier in this lab.
 
-1.  On the **AutomatedWorkflow** blade, select the **prodflow*[yourname]*** logic app that you created earlier in this lab.
+1.  On the **AutomatedWorkflow** blade, select the **prodflow[yourname]** logic app that you created earlier in this lab.
 
 1.  On the **Logic Apps Designer** blade, select the **Blank Logic App** template.
 
@@ -244,7 +232,7 @@ In this exercise, you created all the resources that you'll use for this lab.
     
     1.  In the **Connection Name** field, enter **filesConnection**.
     
-    1.  In the **Storage Account** section, select the **prodstor*[yourname]*** storage account that you created earlier in this lab, and then select **Create**.
+    1.  In the **Storage Account** section, select the **prodstor[yourname]** storage account that you created earlier in this lab, and then select **Create**.
     
     1.  Wait for the connector resource to finish creating.
 
@@ -300,7 +288,7 @@ In this exercise, you built a basic workflow that starts when it's triggered by 
 
 1.  On the **Resource groups** blade, select the **AutomatedWorkflow** resource group that you created earlier in this lab.
 
-1.  On the **AutomatedWorkflow** blade, select the **prodapim*[yourname]*** API Management resource that you created earlier in this lab.
+1.  On the **AutomatedWorkflow** blade, select the **prodapim[yourname]** API Management resource that you created earlier in this lab.
 
 1.  From the **API Management Service** blade, in the **API Management** section, select **Products**.
 
@@ -332,7 +320,7 @@ In this exercise, you built a basic workflow that starts when it's triggered by 
 
     1.  In the **Logic App** section, select **Browse**. 
     
-    1.  In the **Select Logic App to import** dialog box, select the **prodflow*[yourname]*** Logic App that you created earlier in this lab, and then select **Select**.
+    1.  In the **Select Logic App to import** dialog box, select the **prodflow[yourname]** Logic App that you created earlier in this lab, and then select **Select**.
     
     1.  In the **Display name** text box, enter **Metadata Lookup**.
     

@@ -1,6 +1,6 @@
 # AZ-204: Developing solutions for Microsoft Azure
 
-This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure) converted to NodeJS to simplify preparation for Java developes.
+This copy of original course [REPO](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure) converted to Node.js to simplify preparation for Java developes.
 
 - [Lab01: Creating Azure App Service Web Apps](/Instructions/Labs/AZ-204_01_lab_ak.md)
 - [Lab02: Implement Azure Functions](/Instructions/Labs/AZ-204_02_lab_ak.md)
@@ -10,6 +10,8 @@ This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab06: Authenticating to and querying Microsoft Graph by using MSAL SDK](/Instructions/Labs/AZ-204_06_lab_ak.md)
 - [Lab07: Access resource secrets more securely across services](/Instructions/Labs/AZ-204_07_lab_ak.md)
 - [Lab08: Creating a multi-tier solution by using services in Azure](/Instructions/Labs/AZ-204_08_lab_ak.md)
+- [Lab09: Automate business processes with Logic Apps](/Instructions/Labs/AZ-204_09_lab_ak.md)
+- [Lab10: Develop event-based solutions](/Instructions/Labs/AZ-204_10_lab_ak.md)
 
 ## What are we doing?
 

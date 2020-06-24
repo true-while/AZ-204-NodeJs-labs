@@ -1,0 +1,17 @@
+{
+  "name": "EventPublisher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-eventgrid": "^1.6.0",
+    "ms-rest-azure": "^3.0.0",
+    "url": "^0.11.0"
+  }
+}
