@@ -5,7 +5,6 @@ lab:
 ---
 
 # Lab: Access resource secrets more securely across services
-# Student lab answer key
 
 ## Microsoft Azure user interface
 

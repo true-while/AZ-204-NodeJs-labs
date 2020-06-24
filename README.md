@@ -9,7 +9,7 @@ This copy of original course [repo](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab05: Deploying compute workloads by using images and containers](/Instructions/Labs/AZ-204_05_lab_ak.md)
 - [Lab06: Authenticating to and querying Microsoft Graph by using MSAL SDK](/Instructions/Labs/AZ-204_06_lab_ak.md)
 - [Lab07: Access resource secrets more securely across services](/Instructions/Labs/AZ-204_07_lab_ak.md)
-
+- [Lab08: Creating a multi-tier solution by using services in Azure](/Instructions/Labs/AZ-204_08_lab_ak.md)
 
 ## What are we doing?
 
