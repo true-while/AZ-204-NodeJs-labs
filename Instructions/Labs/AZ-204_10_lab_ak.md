@@ -352,89 +352,90 @@ In this exercise, you created a new subscription, validated its registration, an
 
 1.  Add the following line of code to create a new variable named **topicCreds** of type **[TopicCredentials]()**, using the **topicKey** string constant as a constructor parameter:
 
-        ```javascript
-        var topicCreds = new msRestAzure.TopicCredentials(topicKey);
-        ```
+    ```javascript
+    var topicCreds = new msRestAzure.TopicCredentials(topicKey);
+    ```
 
 1.  Add the following line of code to create a new variable named **egClient** of type **[EventGridClient]()**, using the **topicCreds** variable as a constructor parameter:
 
-        ```javascript
-        var egClient = new eventGrid(topicCreds);
-        ```
+    ```javascript
+    var egClient = new eventGrid(topicCreds);
+    ```
+
 1.  Add the following line of code to create a new variable named **topicHostName**, using the **url.parse** method and extract the host name:
 
-        ```javascript   
-        var topicUrl = url.parse(topicEndPoint, true);
-        var topicHostName = topicUrl.host;
-        ```
+    ```javascript   
+    var topicUrl = url.parse(topicEndPoint, true);
+    var topicHostName = topicUrl.host;
+    ```
 
 1.  Add the following line of code to create a new variable named **events** of type array.
 
-        ```javascript  
-        var events = [];
-        ```
+    ```javascript  
+    var events = [];
+    ```
 
 1.  Add the following lines of code to create a new variable named **firstPerson** of an anonymous type:
 
-        ```javascript
-        var firstPerson = {
-                FullName : 'Alba Sutton',
-                Address : '4567 Pine Avenue, Edison, WA 97202'
-            };
-        ```
+    ```javascript
+    var firstPerson = {
+            FullName : 'Alba Sutton',
+            Address : '4567 Pine Avenue, Edison, WA 97202'
+        };
+    ```
 
 1.  Add the following block of code to create a first event of type **EventGridEvent**, and then push the event to the **events** array:
 
-        ```javascript
-        events.push(
-            {
-                id : uuidv1(),
-                eventType : 'Employees.Registration.New',
-                eventTime : new Date().toISOString(),
-                subject : `New Employee: ${firstPerson.FullName}`,
-                data : firstPerson,
-                dataVersion : '1.0.0'
-            });
-        ```
+    ```javascript
+    events.push(
+        {
+            id : uuidv1(),
+            eventType : 'Employees.Registration.New',
+            eventTime : new Date().toISOString(),
+            subject : `New Employee: ${firstPerson.FullName}`,
+            data : firstPerson,
+            dataVersion : '1.0.0'
+        });
+    ```
 
 1.  Add the following line of code to create a new variable named **secondPerson** of an anonymous type:
 
-        ```javascript
-        var secondPerson = {
-                FullName : 'Alexandre Doyon',
-                Address : '456 College Street, Bow, WA 98107'
-            };
-        ```
+    ```javascript
+    var secondPerson = {
+            FullName : 'Alexandre Doyon',
+            Address : '456 College Street, Bow, WA 98107'
+        };
+    ```
 
-1.   Add the following block of code to create a second event of type **EventGridEvent**, and then push the event to the **events** array:
+1.  Add the following block of code to create a second event of type **EventGridEvent**, and then push the event to the **events** array:
 
-        ```javascript
-        events.push(
-            {
-                id : uuidv1(),
-                eventType : 'Employees.Registration.New',
-                eventTime : new Date().toISOString(),
-                subject : `New Employee: ${secondPerson.FullName}`,
-                data : secondPerson,
-                dataVersion : '1.0.0'
-            });  
-        ```
+    ```javascript
+    events.push(
+        {
+            id : uuidv1(),
+            eventType : 'Employees.Registration.New',
+            eventTime : new Date().toISOString(),
+            subject : `New Employee: ${secondPerson.FullName}`,
+            data : secondPerson,
+            dataVersion : '1.0.0'
+        });  
+    ```
 
 1.  Add the following line of code to invoke the **[EventGridClient.PublishEvents]** method using the **topicHostname** and **events** variables as parameters:
 
-        ```javascript
-        egClient.publishEvents(topicHostName, events)
-        ```
+    ```javascript
+    egClient.publishEvents(topicHostName, events)
+    ```
 
 1.  Add the following line of code to render the **Events published** message to the console if the events successful published in method then:
 
-        ```javascript
-        .then((result) => { 
-                return Promise.resolve(console.log('Events published'));
-            }).catch((err) => {
-                console.log('An error ocurred ' + err);
-            });
-        ```
+    ```javascript
+    .then((result) => { 
+             return Promise.resolve(console.log('Events published'));
+        }).catch((err) => {
+            console.log('An error ocurred ' + err);
+        });
+    ```
 
 1.  Review the **main** function, which should now include:
 
