@@ -11,7 +11,9 @@ This copy of original course [REPO](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab07: Access resource secrets more securely across services](/Instructions/Labs/AZ-204_07_lab_ak.md)
 - [Lab08: Creating a multi-tier solution by using services in Azure](/Instructions/Labs/AZ-204_08_lab_ak.md)
 - [Lab09: Automate business processes with Logic Apps](/Instructions/Labs/AZ-204_09_lab_ak.md)
-- [Lab10: Develop event-based solutions](/Instructions/Labs/AZ-204_10_lab_ak.md)
+- [Lab10: Publishing and subscribing to Event Grid events](/Instructions/Labs/AZ-204_10_lab_ak.md)
+- [Lab11: Asynchronously processing messages by using Azure Storage Queues](/Instructions/Labs/AZ-204_11_lab_ak.md)
+
 
 ## What are we doing?
 

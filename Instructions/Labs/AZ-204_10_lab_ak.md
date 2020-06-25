@@ -431,7 +431,7 @@ In this exercise, you created a new subscription, validated its registration, an
 
     ```javascript
     .then((result) => { 
-             return Promise.resolve(console.log('Events published'));
+            return Promise.resolve(console.log('Events published'));
         }).catch((err) => {
             console.log('An error ocurred ' + err);
         });

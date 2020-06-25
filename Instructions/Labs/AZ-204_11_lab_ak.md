@@ -2,12 +2,9 @@
 lab:
     title: 'Lab: Asynchronously processing messages by using Azure Storage Queues'
     az204Module: 'Module 11: Develop message-based solutions'
-    az020Module: 'Module 10: Develop message-based solutions'
-    type: 'Answer Key'
 ---
 
 # Lab: Asynchronously processing messages by using Azure Storage Queues
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -18,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -73,7 +60,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **Create new**, enter **AsyncProcessor**, and then select **OK**.
     
-    1.  In the **Storage account name** text box, enter **asyncstor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **asyncstor[yourname]**.
     
     1.  In the **Location** list, select the **(US) East US** region.
     
@@ -105,9 +92,9 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 In this exercise, you created a new Azure Storage account that you'll use through the remainder of the lab.
 
-### Exercise 2: Configure the Azure Storage SDK in a .NET project 
+### Exercise 2: Configure the Azure Storage SDK in project 
 
-#### Task 1: Create a .NET project
+#### Task 1: Create new project
 
 1.  On the **Start** screen, select the **Visual Studio Code** tile.
 
@@ -117,151 +104,128 @@ In this exercise, you created a new Azure Storage account that you'll use throug
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to create a new .NET project named **MessageProcessor** in the current folder:
+1.  At the open command prompt, enter the following command, and then select Enter to create a new project named **MessageProcessor** in the current folder:
 
-    ```
-    dotnet new console --name MessageProcessor --output .
-    ```
-
-    > **Note**: The **dotnet new** command will create a new **console** project in a folder with the same name as the project.
-
-1.  At the command prompt, enter the following command, and then select Enter to import version 12.0.0 of **Azure.Storage.Queues** from NuGet:
-
-    ```
-    dotnet add package Azure.Storage.Queues --version 12.0.0
+    ```cmd
+    npm init -y
     ```
 
-    > **Note**: The **dotnet add package** command will add the **Azure.Storage.Queues** package from NuGet. For more information, go to [Azure.Storage.Queues](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0).
+    > **Note**: The command will create a new **package.proj** file in a folder with the details name as the project.
 
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
+1.  At the command prompt, enter the following command, and then select Enter to import version  of **azure-storage** from npm:
 
+    ```cmd
+    npm install azure-storage
     ```
-    dotnet build
-    ```
+1.  Create new file **index.js**.
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
 #### Task 2: Write code to access Azure Storage
 
-1.  In the Explorer pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1.  In the Explorer pane of the **Visual Studio Code** window, open the **index.js** file.
 
-1.  On the code editor tab for the **Program.cs** file, delete all the code in the existing file.
+1.  On the code editor tab for the **index.js** file, delete all the code in the existing file.
 
-1.  Add the following line of code to import the **Azure**, **Azure.Storage.Queues**, and **Azure.Storage.Queues.Models** namespaces from the **Azure.Storage.Queues** package imported from NuGet:
+1.  Add the following line of code to import the **azure-storage** package:
 
-    ```
-    using Azure;
-    using Azure.Storage.Queues;
-    using Azure.Storage.Queues.Models;
+    ```javascript
+    const azure = require('azure-storage');
     ```
     
-1.  Add the following lines of code to add **using** directives for the built-in namespaces that will be used in this file:
+1.  In the **index.js** class, enter the following line of code to create a new string constant named **storageConnectionString**:
 
-    ```
-    using System;
-    using System.Threading.Tasks;
-    ```
-
-1.  Enter the following code to create a new **Program** class:
-
-    ```
-    public class Program
-    {
-    }
-    ``` 
-
-1.  In the **Program** class, enter the following line of code to create a new string constant named **storageConnectionString**:
-
-    ```
-    private const string storageConnectionString = "";
+    ```javascript
+    const storageConnectionString = '<connection string to your account>';
     ```
 
 1.  Update the **storageConnectionString** string constant by setting its value to the **Connection string** of the Storage account that you recorded earlier in this lab.
 
-1.  In the **Program** class, enter the following line of code to create a new string constant named **queueName** with a value of **messagequeue**:
+1.  In the **index.js** file, enter the following line of code to create a new string constant named **queueName** with a value of **messagequeue** :
 
-    ```
-    private const string queueName = "messagequeue";
+    ```javascript
+    const queueName = 'messagequeue';
     ```
 
-1.  In the **Program** class, enter the following code to create a new asynchronous **Main** method:
+1.  In the **index.js** file, enter the following code to create a new asynchronous **main** method:
 
-    ```
-    public static async Task Main(string[] args)
-    {
+    ```javascript
+    async function main() {
     }
-    ```
 
-1.  Observe the **Program.cs** file, which should now include:
+    main();
+    ``` 
 
-    ```
-    using Azure;
-    using Azure.Storage.Queues;
-    using Azure.Storage.Queues.Models;
-    using System;
-    using System.Threading.Tasks;
+1.  Observe the **index.js** file, which should now include:
 
-    public class Program
-    {
-        private const string storageConnectionString = "<storage-connection-string>";
-        private const string queueName = "messagequeue";
+    ```javascript
+    const azure = require('azure-storage');
 
-        public static async Task Main(string[] args)
-        {
-        }
+    const storageConnectionString = '<connection string to your account>';
+    const queueName = 'messagequeue';
+
+
+    async function main() {
     }
+
+    main();
     ```
 
 #### Task 3: Validate Azure Storage access
 
-1.  In the **Main** method, add the following line of code to connect to the storage account by creating a new variable named *client* of type **QueueClient**:
+1.  In the **main** method, add the following line of code to connect to the storage account by creating a new variable named *queueClient* of type **QueueClient**:
 
-    ```
-    QueueClient client = new QueueClient(storageConnectionString, queueName);  
-    ```
-
-1.  In the **Main** method, add the following line of code to asynchronously create the queue if it doesn't already exist:
-
-    ```        
-    await client.CreateAsync();
+    ```javascript
+    var queueClient = azure.createQueueService(storageConnectionString); 
     ```
 
-1.  In the **Main** method, add the following line of code to render a header for the "Account Metadata" section:
+1.  In the **main** method, add the following line of code to asynchronously create the queue if it doesn't already exist:
 
+    ```javascript        
+    var result = await queueClient.createQueueIfNotExists(queueName, 
+        function (error){ if(error) console.log(`can not create queue ${error}`)});
     ```
-    Console.WriteLine($"---Account Metadata---");
+
+1.  In the **main** method, add the following line of code to render a header for the "Account Metadata" section:
+
+    ```javascript
+    console.log('---Account Metdata---');
     ```
     
-1.  In the **Main** method, add the following line of code to render the Uniform Resource Identifier (URI) of the queue endpoint:
+1.  In the **main** method, add the following line of code to render the Uniform Resource Identifier (URI) of the queue endpoint:
 
+    ```javascript
+    var url = queueClient.getUrl(queueName);
+    console.log(`Account Uri:\t${url}`);
     ```
-    Console.WriteLine($"Account Uri:\t{client.Uri}");
-    ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Observe the **main** method, which should now include:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        QueueClient client = new QueueClient(storageConnectionString, queueName);        
-        await client.CreateAsync();
+    ```javascript
+    async function main() {
 
-        Console.WriteLine($"---Account Metadata---");
-        Console.WriteLine($"Account Uri:\t{client.Uri}");
+        var queueClient = azure.createQueueService(storageConnectionString);
+        var result = await queueClient.createQueueIfNotExists(queueName, 
+            function (error){ if(error) console.log(`can not create queue ${error}`)});
+
+        console.log('---Account Metdata---');
+
+        var url = queueClient.getUrl(queueName);
+        console.log(`Account Uri:\t${url}`);
     }
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
 
 1.  Observe the output from the currently running console application. The output contains metadata for the queue endpoint.
 
@@ -269,113 +233,105 @@ In this exercise, you created a new Azure Storage account that you'll use throug
 
 #### Review
 
-In this exercise, you configured your .NET project to access the Storage service and manipulate a queue made available through the service.
+In this exercise, you configured your project to access the Storage service and manipulate a queue made available through the service.
 
 ### Exercise 3: Add messages to the queue 
 
 #### Task 1: Write code to access queue messages
 
-1.  In the **Main** method, add the following line of code to render a header for the "Existing Messages" section:
+1.  In the **main** method, add the following line of code to render a header for the "Existing Messages" section:
 
+    ```javascript
+    console.log('---Existing Messages---');
     ```
-    Console.WriteLine($"---Existing Messages---");
-    ```
 
-1.  Within the **Main** method, perform the following actions to create variables that will be used when retrieving queue messages:
+1.  Within the **main** method, perform the following actions to create variables that will be used when retrieving queue messages:
 
-    1.  Add the following line of code to create a variable of type **int** named *batchSize* with a value of **10**:
+    1.  Add the following line of code to create a variable named *batchSize* with a value of **10**:
 
-        ```
-        int batchSize = 10;
+        ```javascript
+        var batchSize = 10;
         ```
 
-    1.  Add the following line of code to create a variable of type **TimeSpan** named *visibilityTimeout* with a value of **2.5 seconds**:
+    1.  Add the following line of code to create a variable of type **TimeSpan** named *visibilityTimeout* with a value of **2.5 days**:
 
-        ```
-        TimeSpan visibilityTimeout = TimeSpan.FromSeconds(2.5d);
-        ```
-
-1.  Within the **Main** method, perform the following actions to retrieve a batch of messages asynchronously from the queue service:
-
-    1.  Add the following line of code to invoke the **ReceiveMessagesAsync** asynchronous method of the **QueueClient** class, passing in the *batchSize* and *visibilityTimeout* variables as parameters:
-
-        ```
-        client.ReceiveMessagesAsync(batchSize, visibilityTimeout);
+        ```javascript
+        var visibilityTimeout = 60 * 60 * 24 * 2.5;  
         ```
 
-    1.  Update the previous line of code by adding more code to process the expression asynchronously by using the **await** keyword:
+1.  Within the **main** method, perform the following actions to retrieve a batch of messages asynchronously from the queue service:
 
-        ```
-        await client.ReceiveMessagesAsync(batchSize, visibilityTimeout);
-        ```
+    1.  Add the following line of code to invoke the **getMessages** asynchronous method of the **QueueClient** class, passing in the *batchSize* and *visibilityTimeout* variables as parameters:
 
-    1.  Update the previous line of code by adding more code to store the result of the expression in a new variable named *messages* of type **[Response<QueueMessage[]>](https://docs.microsoft.com/dotnet/api/azure.response-1)**:
-
-        ```
-        Response<QueueMessage[]> messages = await client.ReceiveMessagesAsync(batchSize, visibilityTimeout);
+        ```javascript
+        result = await queueClient.getMessages(queueName, {numOfMessages: batchSize, visibilityTimeout: visibilityTimeout}, 
+            async function (error, messages, response) {
+            });        
         ```
 
-1.  Within the **Main** method, perform the following actions to iterate over and render the properties of each message:
+1.  Within the **main** method, perform the following actions to iterate over and render the properties of each message:
 
-    1.  Add the following line of code to create a **foreach** loop that iterates over each message that's stored in the **[Value](https://docs.microsoft.com/dotnet/api/azure.response-1.value)** property of the *messages* variable of type **[QueueMessage[]](https://docs.microsoft.com/dotnet/api/azure.storage.queues.models.queuemessage)**:
+    1.  Add the following line of code to create a **foreach** loop that iterates over each message that's stored in the **messages**.
 
-        ```
-        foreach(QueueMessage message in messages?.Value)
-        {
-        }
+        ```javascript
+        async function (error, messages, response) {
+            if (messages != undefined && messages.length > 0) {
+                    messages.forEach(async function(message){
+                       //place for the rest of the code
+                    });
+                }
+        });
         ```
 
     1.  Within the **foreach** loop, add another line of code to render the **MessageId** and **MessageText** properties of each **QueueMessage** instance:
     
+        ```javascript
+        console.log(`[${message.messageId}]\t${message.messageText}`);       
         ```
-        Console.WriteLine($"[{message.MessageId}]\t{message.MessageText}");
-        ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Observe the **main** method, which should now include:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
+    ```javascript
+    async function main() {
 
-        Console.WriteLine($"---Existing Messages---");
-        int batchSize = 10;
-        TimeSpan visibilityTimeout = TimeSpan.FromSeconds(2.5d);
+    var queueClient = azure.createQueueService(storageConnectionString);
+    var result = await queueClient.createQueueIfNotExists(queueName, 
+        function (error){ if(error) console.log(`can not create queue ${error}`)});
+
+    console.log('---Account Metdata---');
+
+    var url = queueClient.getUrl(queueName);
+    console.log(`Account Uri:\t${url}`);
+ 
+    console.log('---Existing Messages---');
+    
+    var batchSize = 10;
+    var visibilityTimeout = 60 * 60 * 24 * 2.5;  //2.5d
+
+    result = await queueClient.getMessages(queueName, {numOfMessages: batchSize, visibilityTimeout: visibilityTimeout}, 
+        async function (error, messages, response) {
         
-        Response<QueueMessage[]> messages = await client.ReceiveMessagesAsync(batchSize, visibilityTimeout);
-
-        foreach(QueueMessage message in messages?.Value)
-        {
-            Console.WriteLine($"[{message.MessageId}]\t{message.MessageText}");
+        if (messages != undefined && messages.length > 0) {
+            messages.forEach(async function(message){
+                console.log(`[${message.messageId}]\t${message.messageText}`);       
+            });
         }
-    }
+    });
     ```
 
-1.  Save the **Program.cs** file.
-
-1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
-
-1.  At the open command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
-    ```
-
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
-
-1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
+1.  Save the **index.js** file.
 
 #### Task 2: Test message queue access
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the  application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
 
 1.  Observe the output from the currently running console application. The output indicates that no messages are in the queue.
 
@@ -385,7 +341,7 @@ In this exercise, you configured your .NET project to access the Storage service
 
 1.  On the **Resource groups** blade, find and then select the **AsyncProcessor** resource group that you created earlier in this lab.
 
-1.  On the **AsyncProcessor** blade, select the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  On the **AsyncProcessor** blade, select the **asyncstor[yourname]** storage account that you created earlier in this lab.
 
 1.  On the **Storage account** blade, select **Overview**. 
 
@@ -393,7 +349,7 @@ In this exercise, you configured your .NET project to access the Storage service
 
 1.  In the **Azure Storage Explorer** window, select **Open Azure Storage Explorer**.
 
-    > **Note**: If this is your first time opening Storage Explorer by using the portal, you might be prompted to allow the portal to open these types of links in the future. You should accept the prompt.
+    > **Note**: If this is your first time opening Storage Explorer `by using the portal`, you might be prompted to allow the portal to open these types of links in the future. You should accept the prompt.
 
 1.  In the **Azure Storage Explorer** application, you will notice a prompt to sign in to your Azure account. Sign in by performing the following actions:
 
@@ -409,11 +365,11 @@ In this exercise, you configured your .NET project to access the Storage service
 
     1.  Observe that you are returned back to the **EXPLORER** pane with your subscription information populated.
 
-1.  From the **Azure Storage Explorer** application, in the **EXPLORER** pane, find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **Azure Storage Explorer** application, in the **EXPLORER** pane, find and expand the **asyncstor[yourname]** storage account that you created earlier in this lab.
 
-1.  Within the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  Within the **asyncstor[yourname]** storage account, find and expand the **Queues** node.
 
-1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
+1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using  code.
 
 1.  On the **messagequeue** tab, select **Add Message**.
 
@@ -431,13 +387,13 @@ In this exercise, you configured your .NET project to access the Storage service
 
 1.  Return to the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
 
 1.  Observe the output from the currently running console application. The output includes the new message that you created.
 
@@ -445,59 +401,67 @@ In this exercise, you configured your .NET project to access the Storage service
 
 #### Task 3: Delete queued messages
 
-1.  In the Explorer pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1.  In the Explorer pane of the **Visual Studio Code** window, open the **index.js** file.
 
-1.  On the code editor tab for the **Program.cs** file, find the existing **foreach** loop within the **Main** method:
+1.  On the code editor tab for the **index.js** file, find the existing **forEach** loop within the **main** method:
 
-    ```
-    foreach(QueueMessage message in messages?.Value)
-    {
-        Console.WriteLine($"[{message.MessageId}]\t{message.MessageText}");
-    }
-    ```
-
-1.  Within the **foreach** loop, add a new line of code to invoke the **DeleteMessageAsync** method of the **QueueMessage** class, passing in the **MessageId** and **PopReceipt** properties of the *message* variable:
-
-    ```
-    await client.DeleteMessageAsync(message.MessageId, message.PopReceipt);
+    ```javascript
+    messages.forEach(async function(message){
+        console.log(`[${message.messageId}]\t${message.messageText}`);       
+        await queueClient.deleteMessage(queueName, message.messageId, message.popReceipt,
+        function (error, response) {
+            if(error) console.log(`message cannot be deleted ${error}`);
+        });
+    });
     ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Within the **forEach** loop, add a new line of code to invoke the **deleteMessage** method of the **QueueMessage** class, passing in the **messageId** and **popReceipt** properties of the *message* variable:
 
+    ```javascript
+    await queueClient.deleteMessage(queueName, message.messageId, message.popReceipt,
+    function (error, response) {
+        if(error) console.log(`message cannot be deleted ${error}`);
+    });
     ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
+
+1.  Observe the **main** method, which should now include:
+
+    ```javascript
+    async function main() {
+
+        // Existing code removed for brevity
         
-        foreach(QueueMessage message in messages?.Value)
-        {
-            Console.WriteLine($"[{message.MessageId}]\t{message.MessageText}");
-            await client.DeleteMessageAsync(message.MessageId, message.PopReceipt);
-        }
+        messages.forEach(async function(message){
+            console.log(`[${message.messageId}]\t${message.messageText}`);       
+            await queueClient.deleteMessage(queueName, message.messageId, message.popReceipt,
+            function (error, response) {
+                if(error) console.log(`message cannot be deleted ${error}`);
+            });
+        });
     }
     ```
 
-1.  **Save** the **Program.cs** file.
+1.  **Save** the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
-    ```
-    dotnet run
+    ```cmd
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
 
 1.  Observe the output from the currently running console application. The message that you created earlier in the lab still exists because it hasn't been deleted previously.
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-1.  Return Storage Explorer, and then find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  Return Storage Explorer, and then find and expand the **asyncstor[yourname]** storage account that you created earlier in this lab.
 
-1.  In the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  In the **asyncstor[yourname]** storage account, find and expand the **Queues** node.
 
-1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
+1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using  code.
 
 1.  Observe the empty list of messages in the queue.
 
@@ -505,68 +469,75 @@ In this exercise, you configured your .NET project to access the Storage service
 
 #### Review
 
-In this exercise, you read and deleted existing messages from the Storage queue by using the .NET library.
+In this exercise, you read and deleted existing messages from the Storage queue by using the Node.js library.
 
-### Exercise 4: Queue new messages by using .NET
+### Exercise 4: Queue new messages by using Node.js
 
 #### Task 1: Write code to create queue messages
 
-1.  In the Explorer pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1.  In the Explorer pane of the **Visual Studio Code** window, open the **index.js** file.
 
-1.  On the code editor tab for the **Program.cs** file, find the existing **Main** method.
+1.  On the code editor tab for the **index.js** file, find the existing **main** method.
 
-1.  Within the **Main** method, add a new line of code to render a header for the "New Messages" section:
+1.  Within the **main** method, add a new line of code to render a header for the "New Messages" section:
 
+    ```javascript
+    console.log('---New Messages---');
     ```
-    Console.WriteLine($"---New Messages---");
-    ```
 
-1.  In the **Main** method, perform the following actions to create and send a message asynchronously:
+1.  In the **main** method, perform the following actions to create and send a message asynchronously:
 
     1.  Add the following line of code to create a new string variable named *greeting* with a value of **Hi, Developer!**:
 
-        ```
-        string greeting = "Hi, Developer!";        
-        ```
-
-    1.  Add the following line of code to invoke the **SendMessageAsync** method of the **QueueClient** class by using the *greeting* variable as a parameter
-
-        ```
-        await client.SendMessageAsync(greeting);        
+        ```javascript
+        var greeting = 'Hi, Developer!';       
         ```
 
-    1.  Add the following line of code to render the content of the message that you sent:
+    1.  Add the following line of code to invoke the **createMessage** method of the **QueueClient** class by using the *greeting* variable as a parameter
 
+        ```javascript
+        result = await queueClient.createMessage(queueName, greeting, 
+        function(error, results, response){
+        // process sending 
+        });       
         ```
-        Console.WriteLine($"Sent Message:\t{greeting}");        
+
+    1.  Add the following line of code to render the content of the message that you sent. It need to be placed inside of processing function:
+
+        ```javascript
+        if(!error){
+            console.log(`Sent Message:\t${greeting}`);
+        }
         ```
 
-1.  Observe the **Main** method, which should now include:
+1.  Observe the **main** method, which should now include:
 
-    ```
-    public static async Task Main(string[] args)
-    {
-        \\ Existing code removed for brevity
+    ```javascript
+    async function main() {
+
+        // Existing code removed for brevity
         
-        Console.WriteLine($"---New Messages---");
-        string greeting = "Hi, Developer!";
-        await client.SendMessageAsync(greeting);
-        
-        Console.WriteLine($"Sent Message:\t{greeting}");
+        console.log('---New Messages---');
+        var greeting = 'Hi, Developer!';
+        result = await queueClient.createMessage(queueName, greeting, function(error, results, response){
+            if(!error){
+                console.log(`Sent Message:\t${greeting}`);
+            }
+        });
     }
     ```
 
-1.  **Save** the **Program.cs** file.
+1.  **Save** the **index.js** file.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\11\\Solution\\MessageProcessor** folder.
 
 1.  Observe the output from the currently running console application. The content of the new message that you sent should be in the output.
 
@@ -574,11 +545,11 @@ In this exercise, you read and deleted existing messages from the Storage queue 
 
 #### Task 2: View queued messages by using Storage Explorer
 
-1.  Return to Storage Explorer, and then find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  Return to Storage Explorer, and then find and expand the **asyncstor[yourname]** storage account that you created earlier in this lab.
 
-1.  In the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  In the **asyncstor[yourname]** storage account, find and expand the **Queues** node.
 
-1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
+1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using Node.js code.
 
 1.  Observe the single new message in the list of messages in the queue.
 
@@ -586,7 +557,7 @@ In this exercise, you read and deleted existing messages from the Storage queue 
 
 #### Review
 
-In this exercise, you created new messages in the queue by using the .NET library for Storage queues.
+In this exercise, you created new messages in the queue by using the Node.js library for Storage queues.
 
 ### Exercise 5: Clean up your subscription 
 
