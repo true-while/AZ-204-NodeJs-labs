@@ -13,6 +13,8 @@ This copy of original course [REPO](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab09: Automate business processes with Logic Apps](/Instructions/Labs/AZ-204_09_lab_ak.md)
 - [Lab10: Publishing and subscribing to Event Grid events](/Instructions/Labs/AZ-204_10_lab_ak.md)
 - [Lab11: Asynchronously processing messages by using Azure Storage Queues](/Instructions/Labs/AZ-204_11_lab_ak.md)
+- [Lab12: Monitor and optimize Azure solutions](/Instructions/Labs/AZ-204_12_lab_ak.md)
+
 
 
 ## What are we doing?

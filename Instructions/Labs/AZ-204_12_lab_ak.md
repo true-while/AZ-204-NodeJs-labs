@@ -2,12 +2,9 @@
 lab:
     title: 'Lab: Monitoring services that are deployed to Azure'
     az204Module: 'Module 12: Monitor and optimize Azure solutions'
-    az020Module: 'Module 11: Monitor and optimize Azure solutions'
-    type: 'Answer Key'
 ---
 
 # Lab: Monitoring services that are deployed to Azure
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -18,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -77,7 +64,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **Create new**, enter **MonitoredAssets**, and then select **OK**.
     
-    1.  In the **Name** text box, enter **instrm*[yourname]***.
+    1.  In the **Name** text box, enter **instrm[yourname]**.
     
     1.  In the **Region** drop-down list, select the **(US) East US** region.
     
@@ -93,7 +80,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **instrm[yourname]** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the **Configure** category, select the **Properties** link.
 
@@ -121,11 +108,11 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** drop-down list, select **MonitoredAssets**.
     
-    1.  In the **Name** text box, enter ***smpapi\***[yourname]***.
+    1.  In the **Name** text box, enter **smpapi[yourname]**.
 
     1.  In the **Publish** section, select **Code**.
 
-    1.  In the **Runtime stack** drop-down list, select **.NET Core 3.0 (current)**.
+    1.  In the **Runtime stack** drop-down list, select **Node 12 LTS**.
 
     1.  In the **Operating System** section, select **Windows**.
 
@@ -141,7 +128,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Enable Application Insights** section, select **Yes**.
 
-    1.  In the **Application Insights** drop-down list, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+    1.  In the **Application Insights** drop-down list, select the **instrm[yourname]** Application Insights account that you created earlier in this lab.
 
     1.  Select **Review + Create**.
 
@@ -155,7 +142,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **smpapi[yourname]** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, in the **Settings** category, select the **Configuration** link.
 
@@ -213,111 +200,174 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 1.  In the **Visual Studio Code** window, right-click the Explorer pane or activate the shortcut menu, and then select **Open in Terminal**.
 
-1.  At the **Open** command prompt, enter the following command, and then select Enter to create a new .NET Web API application named **SimpleApi** in the current directory:
+1.  At the command prompt, enter the following command, and then select Enter to create a new  application:
 
+    ```cmd
+    npm init -y
     ```
-    dotnet new webapi --output . --name SimpleApi
-    ```
+1.  Open the file `package.json` and update file with application name **SimpleApi** and directory. 
 
-1.  At the command prompt, enter the following command, and then select Enter to import version 2.13.0 of **Microsoft.ApplicationInsights** from NuGet to the current project:
+1.  At the command prompt, enter the following command, and then select Enter to import  **applicationinsights** from npm to the current project:
 
-    ```
-    dotnet add package Microsoft.ApplicationInsights --version 2.13.0
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.ApplicationInsights** package from NuGet. For more information, go to [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.13.0).
-
-1.  At the command prompt, enter the following command, and then select Enter to import version 2.13.0 of **Microsoft.ApplicationInsights.AspNetCore** from NuGet:
-
-    ```
-    dotnet add package Microsoft.ApplicationInsights.AspNetCore --version 2.13.0
+    ```cmd
+    npm install applicationinsights
     ```
 
-    > **Note**: The **dotnet add package** command will add the **Microsoft.ApplicationInsights.AspNetCore** package from NuGet. For more information, go to [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.13.0).
+1.  At the command prompt, enter the following command to install additional packages.
 
-1.  At the command prompt, enter the following command, and then select Enter to import version 2.13.0 of **Microsoft.ApplicationInsights.PerfCounterCollector** from NuGet to the current project:
-
-    ```
-    dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector  --version 2.13.0
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.ApplicationInsights.PerfCounterCollector** package from NuGet. For more information, go to [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/2.13.0).
-
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web app:
-
-    ```
-    dotnet build
+    ```cmd
+    npm install express body-parser
     ```
     
+1.  Create new file **app.js** and add following code:
+
+    ```javascript
+    const appInsights = require('applicationinsights');
+    ```
+
+1.  Open file **package.json** and add following record to the `scripts` section. 
+
+    ```json
+    "start": "node app.js",
+    ```
+
 #### Task 2: Update application code to disable HTTPS and use Application Insights
 
-1.  In the **Visual Studio Code** window, in the Explorer pane, select the **Startup.cs** file to open the file in the editor.
+1.  In the **Visual Studio Code** window, in the Explorer pane, select the **app.js** file to open the file in the editor.
 
-1.  In the editor, in the **Startup** class, find and delete the following line of code at line 39:
+1.  In the **app.js** file, add a new static string constant named **INSTRUMENTATION_KEY** with its value set to the instrumentation key that you copied from the Application Insights resource you created earlier in this lab:
 
+    ```javascript
+    const INSTRUMENTATION_KEY = '{your_instrumentation_key}';
     ```
-    app.UseHttpsRedirection();
-    ```
-
-    > **Note**: This line of code forces the web app to use HTTPS. For this lab, this is unnecessary.
-
-1.  In the **Startup** class, add a new static string constant named **INSTRUMENTATION_KEY** with its value set to the instrumentation key that you copied from the Application Insights resource you created earlier in this lab:
-
-    ```
-    private const string INSTRUMENTATION_KEY = "{your_instrumentation_key}";
-    ```
-
-    > **Note**: For example, if your instrumentation key is ``d2bb0eed-1342-4394-9b0c-8a56d21aaa43``, your line of code would be ``private const string INSTRUMENTATION_KEY = "d2bb0eed-1342-4394-9b0c-8a56d21aaa43";``
-
-1.  Find the **ConfigureServices** method in the **Startup** class:
-
-    ```
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllers();
-    }
-    ```
-
+    
 1.  Add a new line of code at the end of the **ConfigureServices** method to configure Application Insights using the provided instrumentation key:
 
-    ```    
-    services.AddApplicationInsightsTelemetry(INSTRUMENTATION_KEY);
+    ```javascript    
+    appInsights.setup(INSTRUMENTATION_KEY).setInternalLogging(true, true).start(); 
+    ```
+    
+1.  Provide following code in in the **app.js** file:
+
+    ```javascript
+    const express = require("express");
+
+    const app = express();
+    const bodyparser = require("body-parser");
+
+    const port = process.env.PORT || 3200;
+
+    app.use(bodyparser.json());
+    app.use(bodyparser.urlencoded({ extended: false }));
+
+    app.listen(port, () => {
+        console.log(`running at port ${port}`);
+    });
     ```
 
-1.  Observe the **ConfigureServices** method, which should now include:
+1.  Add the following to support GET request to the web site. The code should be provided before `app.listen`:
 
+    ```javascript
+    app.get("/", (req, res) => {
+        res.status(200).send();
+    });
     ```
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllers();
-        services.AddApplicationInsightsTelemetry(INSTRUMENTATION_KEY);        
+
+1.  In the same way provide the code for get request to **/weatherforecast** above `app.listen`.
+
+    ```javascript
+    app.get("/weatherforecast", (req, res) => {
+        res.status(200).send(forecast.getForecast());
+    });
+    ```
+1.  Create new file named **\forecast.js**
+
+1.  Provide following code to create **weatherForecast** class:
+
+    ```javascript
+    var summaries = [
+        "Freezing",
+        "Bracing",
+        "Chilly",
+        "Cool",
+        "Mild",
+        "Warm",
+        "Balmy",
+        "Hot",
+        "Sweltering",
+        "Scorching"
+    ];
+
+    class weatherForecast {
+        date;
+        summary;
+        temperatureC;
+    };
+
+    weatherForecast.temperatureF = function (temperatureC) {
+        return Math.floor(32 + temperatureC / 0.5556);
+    };
+
+    exports.weatherForecast = weatherForecast;
+    ```
+
+1.  Provide following code below to prepare function for export.
+
+    ```javascript
+    module.exports = {
+        
+        getRandom: function (min, max) {
+            return Math.random() * (max - min) + min;
+        },
+
+        getForecast: function () {
+
+            Date.prototype.addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+            }
+
+            var forecast = [];
+            for(var i = 0; i < 5; i++) {
+                var wf = new weatherForecast();
+                wf.date = (new Date()).addDays(i)
+                wf.temperatureC = Math.floor(this.getRandom(-20, 55));
+                wf.temperatureF = weatherForecast.temperatureF(wf.temperatureC);
+                wf.summary = summaries[Math.floor(this.getRandom(0,summaries.length-1))];
+                forecast.push(wf);
+            }
+        return forecast;
+        }
     }
     ```
+    
+1.  Save the **forecast.js** file.
 
-1.  Save the **Startup.cs** file.
+1.  Return back to the **app.js** file and add the line on top of the file:
 
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application.
-
+    ```javascript
+    const forecast = require("./forecast");
     ```
-    dotnet build
-    ```
+
+1.  Save the **app.js** file.
+
 
 #### Task 3: Test an API application locally
 
 1.  At the command prompt, enter the following command, and then select Enter to run the .NET web application.
 
-    ```
-    dotnet run
+    ```cmd
+    node start
     ```
 
 1.  On the taskbar, open the context menu for the **Microsoft Edge** icon, and then open a new browser window.
 
-1.  In the open browser window, go to the **/weatherforecast** relative path of your test application that's hosted at **localhost** on port **5000**.
+1.  In the open browser window, go to the **/weatherforecast** relative path of your test application that's hosted at **localhost** on port **3200**.
     
-    > **Note**: The full URL is http://localhost:5000/weatherforecast
+    > **Note**: The full URL is http://localhost:3200/weatherforecast
 
-1.  Close the browser window that's displaying the http://localhost:5000/weatherforecast address.
+1.  Close the browser window that's displaying the http://localhost:3200/weatherforecast address.
 
 1.  Close the currently running Visual Studio Code application.
 
@@ -329,7 +379,7 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **instrm[yourname]** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the tiles in the center of the blade, find the displayed metrics. Specifically, find the number of server requests that have occurred and the average server response time.
 
@@ -373,13 +423,13 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
     az webapp list --resource-group MonitoredAssets
     ```
 
-1.  Enter the following command, and then select Enter to find the apps that have the prefix **smpapi\***:
+1.  Enter the following command, and then select Enter to find the apps that have the prefix **smpapi**:
 
     ```
     az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')]"
     ```
 
-1.  Enter the following command, and then select Enter to render out only the name of the single app that has the **smpapi\***:
+1.  Enter the following command, and then select Enter to render out only the name of the single app that has the **smpapi**:
 
     ```
     az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')].{Name:name}" --output tsv
@@ -409,7 +459,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the ***smpapi\**[yourname]** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Browse**. A new browser window or tab will open and return a "404 (Not Found)" error.
 
@@ -427,7 +477,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the ***smpapi\**[yourname]** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Application Insights**.
 
@@ -471,7 +521,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **instrm[yourname]** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the tiles in the center of the blade, find the displayed metrics. Specifically, find the number of server requests that have occurred and the average server response time.
 
@@ -485,7 +535,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **instrm[yourname]** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, select **Live Metrics Stream** in the **Investigate** section.
 

@@ -68,7 +68,7 @@ in the following steps you will build storage account for storing images and Web
     
     1.  In the **Resource group** section, select **Create new**, enter **ManagedPlatform**, and then select **OK**.
     
-    1.  In the **Storage account name** text box, enter **imgstor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **imgstor[yourname]**.
     
     1.  In the **Location** list, select the **(US) East US** region.
     
@@ -102,7 +102,7 @@ in the following steps you will build storage account for storing images and Web
 
 1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
 
-1.  From the **ManagedPlatform** blade, select the **imgstor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **ManagedPlatform** blade, select the **imgstor[yourname]** storage account that you created earlier in this lab.
 
 1.  From the **Storage Account** blade, in the **Blob service** section, select the **Containers** link.
 
@@ -148,7 +148,7 @@ in the following steps you will build storage account for storing images and Web
     
     1.  In the **Resource group** drop-down list, select **ManagedPlatform**.
     
-    1.  In the **Name** text box, enter **imgapi*[yourname]***.
+    1.  In the **Name** text box, enter **imgapi[yourname]**.
 
     1.  In the **Publish** section, select **Code**.
 
@@ -180,7 +180,7 @@ in the following steps you will build storage account for storing images and Web
 
 1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
 
-1.  From the **ManagedPlatform** blade, select the **imgapi*[yourname]*** web app that you created earlier in this lab.
+1.  From the **ManagedPlatform** blade, select the **imgapi[yourname]** web app that you created earlier in this lab.
 
 1.  From the **Web App** blade, in the **Settings** section, select the **Configuration** link.
 
@@ -274,7 +274,7 @@ in the following steps you will build storage account for storing images and Web
 
 1.	From the **Resource groups** blade, find and select the **ManagedPlatform** resource group that you created earlier in this lab.
 
-1.	From the **ManagedPlatform** blade, select the **imgapi*[yourname]*** web app that you created earlier in this lab.
+1.	From the **ManagedPlatform** blade, select the **imgapi[yourname]** web app that you created earlier in this lab.
 
 1.	From the **Web App** blade, select **Browse**.
 
@@ -312,7 +312,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
     
     1.  In the **Resource group** drop-down list, select **ManagedPlatform**.
     
-    1.  In the **Name** text box, enter **imgweb*[yourname]***.
+    1.  In the **Name** text box, enter **imgweb[yourname]**.
 
     1.  In the **Publish** section, select **Code**.
 
@@ -342,7 +342,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
 
 1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
 
-1.  From the **ManagedPlatform** blade, select the **imgweb*[yourname]*** web app that you created earlier in this lab.
+1.  From the **ManagedPlatform** blade, select the **imgweb[yourname]** web app that you created earlier in this lab.
 
 1.  From the **Web App** blade, in the **Settings** section, select the **Configuration** link.
 
@@ -432,7 +432,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
 
 1.	From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
 
-1.	From the **ManagedPlatform** blade, select the **imgweb*[yourname]*** web app that you created earlier in this lab.
+1.	From the **ManagedPlatform** blade, select the **imgweb[yourname]** web app that you created earlier in this lab.
 
 1.	From the **Web App** blade, select **Browse**.
 
