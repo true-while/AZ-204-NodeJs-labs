@@ -1,0 +1,25 @@
+extends layout
+
+block home
+  header.card.text-center.border-0
+    img.card-img-top.img-fluid(src='/images/mountains.jpg' alt='Photo by Dan Gold on Unsplash')
+    .card-img-overlay(style='background-color: rgba(15, 15, 15, 0.65);')
+      .container
+        h1.jumbotron-heading.display-1.text-light
+          | Adventure Works
+        p.lead.text-white-50.font-weight-lighter.font-italic
+          | Cycling products for the adventerous among us
+
+block content
+  article.card-columns
+    each val in models
+      .card
+        img.card-img-top(src= (process.env.BlobContainerUrl + '/' + val.Photo) alt= val.Name)
+        .card-body
+          h5.card-title= val.Name
+          p.card-text
+            small.text-muted= val.Description
+        .card-footer
+          a.card-link(href= '/details/' + val.Id) 
+            | View Details
+

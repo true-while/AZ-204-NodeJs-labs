@@ -105,7 +105,7 @@ In this exercise, you created a new application registration and recorded import
 
 1.  On the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window that opens, browse to **Allfiles (F):\\Allfiles\\Labs\\06\\Starter\\GraphClient**, and then select **Select Folder**.
+1.  In the **File Explorer** window that opens, browse to **:\\Allfiles\\Labs\\06\\Starter\\GraphClient**, and then select **Select Folder**.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
@@ -290,7 +290,7 @@ In this exercise, you created a new application registration and recorded import
     node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\06\\Solution\\GraphClient** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\06\\Solution\\GraphClient** folder.
 
 1.  The running console application will automatically return list of the users with ID and Name.
 
@@ -304,7 +304,7 @@ In this exercise, you acquired a token from the Microsoft identity platform by u
 
 #### Task 1: Setup Web application to get access user information from Graph. 
 
-1.  From the **Visual Studio Code** open a folder located in  **Allfiles (F):\\Allfiles\\Labs\\06\\Starter\\WebGraphClient**.
+1.  From the **Visual Studio Code** open a folder located in  **\\Allfiles\\Labs\\06\\Starter\\WebGraphClient**.
 
     >**Note**: you are open a complete solution. To build the solution from scratch you can follow the [tutorial](https://docs.microsoft.com/en-us/graph/tutorials/node?tutorial-step=1)
 

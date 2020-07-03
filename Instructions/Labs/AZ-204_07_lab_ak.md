@@ -70,6 +70,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Access tier** section, ensure that **Hot** is selected.
 
+    1.  On `Advanced` tab change **blob public access** to **enabled** 
+
     1.  Select **Review + Create**.
 
 1.  From the **Review + Create** tab, review the options that you selected during the previous steps.
@@ -448,7 +450,7 @@ In this exercise, you used a service identity to read the value of a secret stor
     
     1.  In the **Files** section, select the **Folder** icon.
     
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\07\\Starter**, select the **records.json** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\07\\Starter**, select the **records.json** file, and then select **Open**.
     
     1.  Ensure that **Overwrite if files already exist** is selected, and then select **Upload**.  
 

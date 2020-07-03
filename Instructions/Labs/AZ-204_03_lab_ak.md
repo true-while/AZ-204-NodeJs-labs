@@ -150,7 +150,7 @@ In this exercise, you created a new Storage account to use throughout the remain
 
     1.  In the **Files** section, select the **Folder** icon.
 
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\03\\Starter\\Images**, select the **graph.jpg** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\03\\Starter\\Images**, select the **graph.jpg** file, and then select **Open**.
 
     1.  Ensure that the **Overwrite if files already exist** check box is selected, and then select **Upload**. 
     
@@ -168,7 +168,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window that opens, browse to **Allfiles (F):\\Allfiles\\Labs\\03\\Starter\\BlobManager**, and then select **Select Folder**.
+1.  In the **File Explorer** window that opens, browse to **\\Allfiles\\Labs\\03\\Starter\\BlobManager**, and then select **Select Folder**.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
@@ -317,7 +317,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
     node .\index.js
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The output contains metadata for the Storage account that was retrieved from the service.
 
@@ -383,7 +383,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes a list of every existing container in the account.
 
@@ -478,7 +478,7 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes metadata about the existing container and blobs.
 
@@ -574,7 +574,7 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes metadata about the existing container and blobs.
 
@@ -598,7 +598,7 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
 
     1.  In the **Files** section, select the **Folder** icon.
 
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\03\\Starter\\Images**, select the **graph.svg** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\03\\Starter\\Images**, select the **graph.svg** file, and then select **Open**.
 
     1.  Ensure that the **Overwrite if files already exist** check box is selected, and then select **Upload**. 
     
@@ -690,7 +690,7 @@ In this exercise, you accessed existing containers by using the Azure Storage SD
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **index.js** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes the final URL to access the blob online. Record the value of this URL to use later in the lab.
 

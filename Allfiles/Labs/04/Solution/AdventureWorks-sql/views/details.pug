@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  article.row
+    section.col-md-8
+      img.img-thumbnail.img-fluid.w-100.shadow-sm(src=(process.env.BlobContainerUrl + '/' + model.Photo) alt= model.Name)
+    aside.col-md-4
+      .card.shadow-sm
+        .card-header
+          h4.font-weight-normal= model.Name
+        .card-body
+          h3.card-title
+            span.text-nowrap.text-muted= '$ ' + model.avgProdPrice()
+          form(method='post' novalidate='novalidate')
+            .form-group
+              label(for='SelectedProductId')
+                | Select Options
+              select#SelectedProductId.form-control(data-val='true' data-val-required='Please select a product.' name='SelectedProductId')
+                case model.Products.length > 1
+                  when true
+                    option(value='' selected='selected') Select an option
+                each prod in model.Products
+                  option(value= prod.id)= prod.Name + ', $' + prod.ListPrice
+              span.text-danger.field-validation-valid(data-valmsg-for='SelectedProductId' data-valmsg-replace='true')
+            button.btn.btn-info.btn-lg.btn-block(disabled='disabled' type='submit')
+              i.fas.fa-shopping-cart.ml-2
+              | Add to Cart
+
+  summary.mt-3
+    .card.bg-light.shadow-sm
+      .card-body
+        h5.card-title= model.Description

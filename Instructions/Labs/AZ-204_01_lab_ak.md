@@ -79,6 +79,8 @@ in the following steps you will build storage account for storing images and Web
     1.  In the **Replication** list, select **Locally-redundant storage (LRS)**.
     
     1.  In the **Access tier (default)** section, ensure that **Hot** is selected.
+
+    1.  On `Advanced` tab change **blob public access** to **enable** 
     
     1.  Select **Review + Create**.
 
@@ -122,7 +124,7 @@ in the following steps you will build storage account for storing images and Web
 
     1.  In the **Files** section, select the **Folder** icon.
 
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Images**, select the **grilledcheese.jpg** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\01\\Starter\\Images**, select the **grilledcheese.jpg** file, and then select **Open**.
 
     1.  Ensure that the **Overwrite if files already exist** check box is selected, and then select **Upload**. Wait for the blob to upload before you continue with this lab.
 
@@ -210,7 +212,7 @@ in the following steps you will build storage account for storing images and Web
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\API**, and then select **Select Folder**.
+1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\01\\Starter\\API**, and then select **Select Folder**.
 
 1.  In the Explorer pane of the **Visual Studio Code** window, expand the **api** folder, and then select the **ImagesController.js** file to open the file in the editor.
 
@@ -254,11 +256,7 @@ in the following steps you will build storage account for storing images and Web
     az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
     ```
 
-1.	Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\API** directory that contains the lab files:
-
-    ```
-    cd F:\Allfiles\Labs\01\Starter\API\
-    ```
+1.	Enter the following command, and then select Enter to change the current directory to the **\\Allfiles\\Labs\\01\\Starter\\API** directory that contains the lab files
 
 1.	Enter the following command, and then select Enter to deploy the **api.zip** file to the web app that you created earlier in this lab:
 
@@ -370,7 +368,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Web**, and then select **Select Folder**.
+1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\01\\Starter\\Web**, and then select **Select Folder**.
 
 1.  In the Explorer pane of the **Visual Studio Code** window, expand the **Pages** folder, and then select the **Index.cshtml.cs** file to open the file in the editor.
 
@@ -412,11 +410,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
     az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')].{Name:name}" --output tsv
     ```
 
-1.	Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Web** directory that contains the lab files:
-
-    ```
-    cd F:\Allfiles\Labs\01\Starter\Web\
-    ```
+1.	Enter the following command, and then select Enter to change the current directory to the **\\Allfiles\\Labs\\01\\Starter\\Web** directory that contains the lab files.
 
 1.	Enter the following command, and then select Enter to deploy the **web.zip** file to the web app that you created earlier in this lab:
 
@@ -442,7 +436,7 @@ In this exercise, you created a web app in Azure and then deployed your Node.js 
     
     1.  Select **Browse**.
     
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Images**, select the **bahnmi.jpg** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\01\\Starter\\Images**, select the **bahnmi.jpg** file, and then select **Open**.
     
     1.  Select **Upload**.
 

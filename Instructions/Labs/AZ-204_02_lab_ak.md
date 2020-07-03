@@ -410,7 +410,7 @@ In this exercise, you created a function that runs automatically based on a fixe
 
     1.  In the **Files** section, select the **Folder** icon.
 
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\02\\Starter**, select the **settings.json** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\02\\Starter**, select the **settings.json** file, and then select **Open**.
 
     1.  Ensure that the **Overwrite if files already exist** check box is selected, and then select **Upload**. 
     

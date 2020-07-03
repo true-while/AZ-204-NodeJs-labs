@@ -190,13 +190,13 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 ### Exercise 2: Monitor a local web application by using Application Insights 
 
-#### Task 1: Build a .NET Web API project
+#### Task 1: Build a Node.js Web API project
 
 1.  On the taskbar, select the **Visual Studio Code** icon.
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\12\\Starter\\Api**, and then select **Select Folder**.
+1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\12\\Starter\\Api**, and then select **Select Folder**.
 
 1.  In the **Visual Studio Code** window, right-click the Explorer pane or activate the shortcut menu, and then select **Open in Terminal**.
 
@@ -355,7 +355,7 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 #### Task 3: Test an API application locally
 
-1.  At the command prompt, enter the following command, and then select Enter to run the .NET web application.
+1.  At the command prompt, enter the following command, and then select Enter to run the web application.
 
     ```cmd
     node start
@@ -387,7 +387,7 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 #### Review
 
-In this exercise, you created an API by using ASP.NET and configured it to stream application metrics to Application Insights. You then used the Application Insights dashboard to get performance details about your API.
+In this exercise, you created an API by using `express` and configured it to stream application metrics to Application Insights. You then used the Application Insights dashboard to get performance details about your API.
 
 ### Exercise 3: Monitor a web app using Application Insights
 
@@ -397,7 +397,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\12\\Starter\\Api**, and then select **Select Folder**.
+1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\12\\Starter\\Api**, and then select **Select Folder**.
 
 1.  In the Visual Studio Code window, right-click the Explorer pane or activate the shortcut menu, and then select **Open in Terminal**.
 
@@ -435,15 +435,11 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
     az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')].{Name:name}" --output tsv
     ```
 
-1.  Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\12\\Starter** directory that contains the deployment files:
-
-    ```
-    cd F:\Allfiles\Labs\12\Starter\
-    ```
+1.  Enter the following command, and then select Enter to change the current directory to the **\\Allfiles\\Labs\\12\\Starter** directory that contains the deployment files.
 
 1.  Enter the following command, and then select Enter to deploy the **api.zip** file to the web app that you created earlier in this lab:
 
-    ```
+    ```cmd
     az webapp deployment source config-zip --resource-group MonitoredAssets --src api.zip --name <name-of-your-api-app>
     ```
 
@@ -459,7 +455,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\**[yourname]** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **smpapi[yourname]** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Browse**. A new browser window or tab will open and return a "404 (Not Found)" error.
 
@@ -477,7 +473,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\**[yourname]** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets** blade, select the **smpapi[yourname]** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Application Insights**.
 
@@ -485,7 +481,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
     1.  Ensure that the **Application Insights** section is set to **Enable**.
 
-    1.  In the **Instrument your application** section, select the **.NET** tab.
+    1.  In the **Instrument your application** section, select the **Node.js** tab.
 
     1.  In the **Collection level** section, select **Recommended**.
 
@@ -573,7 +569,7 @@ In this exercise, you deployed your web application to Azure App Service and mon
 
 1.  Enter the following command, and then select Enter to delete the **MonitoredAssets** resource group:
 
-    ```
+    ```cmd
     az group delete --name MonitoredAssets --no-wait --yes
     ```
     

@@ -174,7 +174,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Files** section, select the **Folder** icon.
 
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\09\\Starter**, select the following files, and then select **Open**:
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\09\\Starter**, select the following files, and then select **Open**:
 
         -   **item_00.json**
         

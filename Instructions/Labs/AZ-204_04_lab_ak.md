@@ -1,13 +1,10 @@
 ---
 lab:
-    title: 'Lab: Constructing a polyglot data solutio'
+    title: 'Lab: Constructing a polyglot data solution'
     az204Module: 'Module 04: Develop solutions that use Cosmos DB storage'
-    az020Module: 'Module 04: Develop solutions that use Cosmos DB storage'
-    type: 'Answer Key'
 ---
 
 # Lab: Constructing a polyglot data solution
-# Student lab answer key
 
 ## Microsoft Azure user interface
 
@@ -18,16 +15,6 @@ Microsoft updates this training course when the community brings needed changes 
 ## Instructions
 
 ### Before you start
-
-#### Sign in to the lab virtual machine
-
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-> **Note**: Instructions to connect to the virtual lab environment will be provided by your instructor.
 
 #### Review the installed applications
 
@@ -73,7 +60,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **Create new**, enter **PolyglotData**, and then select **OK**.
     
-    1.  In the **Server name** text box, enter **polysqlsrvr*[yourname]***.
+    1.  In the **Server name** text box, enter **polysqlsrvr[yourname]**.
     
     1.  In the **Location** drop-down list, select **(US) East US**.
     
@@ -119,7 +106,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **PolyglotData** from the list.
     
-    1.  In the **AccountName** text box, enter **polycosmos*[yourname]***.
+    1.  In the **AccountName** text box, enter **polycosmos[yourname]**.
     
     1.  In the **API** drop-down list, select **Core (SQL)**.
 
@@ -145,7 +132,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  From the **Resource groups** blade, find and then select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polycosmos*[yourname]*** Azure Cosmos DB account that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polycosmos[yourname]** Azure Cosmos DB account that you created earlier in this lab.
 
 1.  From the **Azure Cosmos DB account** blade, find the **Settings** section from the blade, and then select the **Keys** link.
 
@@ -171,7 +158,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Resource group** section, select **PolyglotData** from the list.
     
-    1.  In the **Storage account name** text box, enter **polystor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **polystor[yourname]**.
     
     1.  In the **Location** drop-down list, select the **(US) East US** region.
     
@@ -183,6 +170,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Access tier (default)** section, ensure that **Hot** is selected.
     
+    1.  On `Advanced` tab change **blob public access** to **enable** 
+
     1.  Select **Review + Create**.
 
 1.  From the **Review + Create** tab, review the options that you selected during the previous steps.
@@ -203,13 +192,13 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  From the **Resource groups** blade, find and select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polystor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polystor[yourname]** storage account that you created earlier in this lab.
 
 1.  From the **Storage account** blade, select the **Containers** link in the **Blob service** section from the blade.
 
 1.  In the **Containers** section, select **+ Container**.
 
-1.  In the **New container** ollowing actions:
+1.  In the **New container** following actions:
     
     1.  In the **Name** text box, enter **images**.
     
@@ -231,7 +220,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
     
     1.  In the **Files** section, select the **Folder** icon.
     
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\04\\Starter\\Images**, select all 42 individual **.jpg** image files, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\04\\Starter\\Images**, select all 42 individual **.jpg** image files, and then select **Open**.
     
     1.  Ensure that **Overwrite if files already exist** is selected, and then select **Upload**.
 
@@ -243,7 +232,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  From the **Resource groups** blade, find and select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polystor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polystor[yourname]** storage account that you created earlier in this lab.
 
 1.  From the **Storage account** blade, select the **Containers** link in the **Blob service** section from the blade.
 
@@ -265,7 +254,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
     
     1.  In the **Files** section, select the **Folder** icon.
     
-    1.  In the **File Explorer** window, browse to **Allfiles (F):\\Allfiles\\Labs\\04\\Starter**, select the **AdventureWorks.bacpac** file, and then select **Open**.
+    1.  In the **File Explorer** window, browse to **\\Allfiles\\Labs\\04\\Starter**, select the **AdventureWorks.bacpac** file, and then select **Open**.
     
     1.  Ensure that **Overwrite if files already exist** is selected, and then select **Upload**.
 
@@ -277,7 +266,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  From the **Resource groups** blade, find and select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polysqlsrvr*[yourname]*** SQL server that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polysqlsrvr[yourname]** SQL server that you created earlier in this lab.
 
 1.  From the **SQL server** blade, select **Import database**.
 
@@ -287,7 +276,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
     1.  Select the **Storage** option.
 
-    1.  From the **Storage accounts** blade, select the **polystor*[yourname]*** storage account that you created earlier in this lab. 
+    1.  From the **Storage accounts** blade, select the **polystor[yourname]** storage account that you created earlier in this lab. 
 
     1.  From the **Containers** blade, select the **databases** container that you created earlier in this lab. 
 
@@ -313,7 +302,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  From the **Resource groups** blade, find and select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polysqlsrvr*[yourname]*** SQL server that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polysqlsrvr[yourname]** SQL server that you created earlier in this lab.
 
 1.  From the **SQL server** blade, find the **Security** section from the blade, and then select the **Firewalls and virtual networks** link.
 
@@ -357,7 +346,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  In the open query editor, enter the following query:
 
-    ```
+    ```SQL
     SELECT * FROM AdventureWorks.dbo.Models
     ```
 
@@ -367,7 +356,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 1.  In the query editor, replace the existing query with the following query:
 
-    ```
+    ```SQL
     SELECT * FROM AdventureWorks.dbo.Products
     ```
 
@@ -379,7 +368,7 @@ In this exercise, you created all the Azure resources that you'll need for a pol
 
 In this exercise, you imported all the resources that you'll use with your web application.
 
-### Exercise 3: Open and configure a .NET web application
+### Exercise 3: Open and configure a web application
 
 #### Task 1: Open and build the web application
 
@@ -387,18 +376,16 @@ In this exercise, you imported all the resources that you'll use with your web a
 
 1.  From the **File** menu, select **Open Folder**.
 
-1.  In the **File Explorer** window that opens, browse to **Allfiles (F):\\Allfiles\\Labs\\04\\Starter\\AdventureWorks**, and then select **Select Folder**.
+1.  In the **File Explorer** window that opens, browse to **\\Allfiles\\Labs\\04\\Starter\\AdventureWorks**, and then select **Select Folder**.
 
 1.  In the **Visual Studio Code** window, right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to build the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to build the web application:
 
     ```
-    dotnet build
+    npm install
     ```
-
-    > **Note**: The **dotnet build** command will automatically restore any missing NuGet packages prior to building all projects in the folder.
-
+    
 1.  Observe the results of the build printed in the terminal. The build should complete successfully with no errors or warning messages.
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
@@ -407,55 +394,44 @@ In this exercise, you imported all the resources that you'll use with your web a
 
 1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Web** project.
 
-1.  Open the **appsettings.json** file.
+1.  Open the **.env** file.
 
-1.  In the JavaScript Object Notation (JSON) object on line 3, find the **ConnectionStrings.AdventureWorksSqlContext** path. Observe that the current value is empty:
-
-    ```
-    "ConnectionStrings": {
-        "AdventureWorksSqlContext": "",
-        ...
-    },
-    ```
+1.  Located connection string started from **AdventureWorksSqlContext**:
 
 1.  Update the value of the **AdventureWorksSqlContext** property by setting its value to the **ADO.NET (SQL Authentication) connection string** of the SQL database that you recorded earlier in this lab.
 
+    ```ini
+    AdventureWorksSqlContext=<your connection string>
+    ```
+
     > **Note**: It's important that you use your updated connection string here. The original connection string copied from the portal won't have the username and password necessary to connect to the SQL database.
 
-1.  Save the **appsettings.json** file.
+1.  Save the **.env** file.
 
 #### Task 3: Update the blob base URL
 
-1.  In the JSON object on line 8, find the **Settings.BlobContainerUrl** path. Observe that the current value is empty:
-
-    ```
-    "Settings": {
-        "BlobContainerUrl": "",
-        ...
-    }
-    ```
+1.  In the the **.env** file locate **BlobContainerUrl** string. 
 
 1.  Update the value of the **BlobContainerUrl** property by setting its value to the **URL** property of the Azure Storage blob container named **images** that you recorded earlier in this lab.
 
-1.  Save the **appsettings.json** file.
+    ```ini
+    BlobContainerUrl=
+    ```
+1.  Save the **.env** file.
 
 #### Task 4: Validate the web application
 
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Web** folder:
+1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks** folder. At the command prompt, enter the following command, and then select Enter to run the web application:
 
     ```
-    cd .\AdventureWorks.Web\
+    npm start
     ```
 
-1.  At the command prompt, enter the following command, and then select Enter to run the .NET web application:
+    > **Note**: The **npm start** command will automatically start the web application without a debugger attached. The command will output the port of the running application.
 
-    ```
-    dotnet run
-    ```
-
-    > **Note**: The **dotnet run** command will automatically build any changes to the project and then start the web application without a debugger attached. The command will output the URL of the running application and any assigned ports.
+   > **Note**: If there are any build errors, review the project file in the **\\Allfiles\\Labs\\04\\Solution\\AdventureWorks-sql** folder.
 
 1.  On the taskbar, select the **Microsoft Edge** icon.
 
@@ -471,9 +447,11 @@ In this exercise, you imported all the resources that you'll use with your web a
 
 1.  Return to the **Visual Studio Code** window, and then select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
+   > **Note**: If there are any build errors, review the project file in the **\\Allfiles\\Labs\\04\\Solution\\AdventureWorks-Cosmos** folder.
+   
 #### Review
 
-In this exercise, you configured your ASP.NET web application to connect to your resources in Azure.
+In this exercise, you configured your web application to connect to your resources in Azure.
 
 ### Exercise 4: Migrating SQL data to Azure Cosmos DB
 
@@ -481,278 +459,245 @@ In this exercise, you configured your ASP.NET web application to connect to your
 
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to create a new .NET project named **AdventureWorks.Migrate** in a folder with the same name:
+1.  At the open command prompt, enter the following command, and then select Enter to create a new folder named **Migrate** in a folder with the same name:
 
-    ```
-    dotnet new console --name AdventureWorks.Migrate
-    ```
-
-    > **Note**: The **dotnet new** command will create a new **console** project in a folder with the same name as the project.
-
-1.  At the command prompt, enter the following command, and then select Enter to add a reference to the existing **AdventureWorks.Models** project:
-
-    ```
-    dotnet add .\AdventureWorks.Migrate\AdventureWorks.Migrate.csproj reference .\AdventureWorks.Models\AdventureWorks.Models.csproj
+    ```cmd
+    npm init -y
     ```
 
-    > **Note**: The **dotnet add reference** command will add a reference to the model classes contained in the **AdventureWorks.Models** project.
+    > **Note**: The **npm init** command will create a new **package.json** file in a folder with the default parameters.
 
-1.  At the command prompt, enter the following command, and then select Enter to add a reference to the existing **AdventureWorks.Context** project:
+1.  Create new file named **index.js**:
+
+1.  Add to the project file **sqlrepo.js** from web application you build previously. previously. 
+
+1.  At the command prompt, enter the following commands to load packages from NPM:
+
+    ```cmd
+    npm install tedious
+    npm install sequelize    
+    npm install mssql-connection-string
+    npm install dotenv
+    ```
+   
+1.  At the command prompt, enter the following command, and then select Enter to import package of **@azure/cosmos** from NPM:
 
     ```
-    dotnet add .\AdventureWorks.Migrate\AdventureWorks.Migrate.csproj reference .\AdventureWorks.Context\AdventureWorks.Context.csproj
-    ```
-
-    > **Note**: The **dotnet add reference** command will add a reference to the context classes contained in the **AdventureWorks.Context** project.
-
-1.  At the command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Migrate** folder:
-
-    ```
-    cd .\AdventureWorks.Migrate\
-    ```
-
-1.  At the command prompt, enter the following command, and then select Enter to import version 2.2.6 of **Microsoft.EntityFrameworkCore.SqlServer** from NuGet:
-
-    ```
-    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.1
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.EntityFrameworkCore.SqlServer** package from **NuGet**. For more information, go to: [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.0.1).
-
-1.  At the command prompt, enter the following command, and then select Enter to import version 3.4.1 of **Microsoft.Azure.Cosmos** from NuGet:
-
-    ```
-    dotnet add package Microsoft.Azure.Cosmos --version 3.4.1
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.Azure.Cosmos** package from **NuGet**. For more information, go to: [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.4.1).
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
+    npm install @azure/cosmos
     ```
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-#### Task 2: Create a .NET class 
+#### Task 2: Create a classes 
 
 1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Migrate** project.
 
-1.  Open the **Program.cs** file.
+1.  Open the **index.js** file.
 
-1.  From the code editor tab for the **Program.cs** file, delete all the code in the existing file.
+1.  Add the following lines of code to read environment variables from config file:
 
-1.  Add the following lines of code to import the **AdventureWorks.Models** and **AdventureWorks.Context** namespaces from the referenced **AdventureWorks.Models** and **AdventureWorks.Context** projects:
-
-    ```
-    using AdventureWorks.Context;
-    using AdventureWorks.Models;
-    ```
-
-1.  Add the following line of code to import the **Microsoft.Azure.Cosmos** namespace from the **Microsoft.Azure.Cosmos** package imported from NuGet:
-
-    ```
-    using Microsoft.Azure.Cosmos;
+    ```javascript
+    'use strict';
+    const dotenv = require('dotenv');
+    const path = require('path');
+    const ENV_FILE = path.join(__dirname, '.env');
+    dotenv.config({ path: ENV_FILE });
     ```
 
-1.  Add the following line of code to import the **Microsoft.EntityFrameworkCore** namespace from the **Microsoft.EntityFrameworkCore.SqlServer** package imported from NuGet:
+1.  Create or copy file **.env** from previous project. Add new line named **CosmosDBConnectionString**
 
-    ```
-    using Microsoft.EntityFrameworkCore;
-    ```
+1.  Finlay **.env** file should be updated with values you copied before.
 
-1.  Add the following lines of code to add **using** directives for the built-in namespaces that will be used in this file:
-
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    ```
-
-1.  Enter the following code to create a new **Program** class:
-
-    ```
-    public class Program
-    {
-    }
-    ```
-
-1.  Within the **Program** class, enter the following line of code to create a new string constant named **sqlDBConnectionString**:
-
-    ```
-    private const string sqlDBConnectionString = "";
-    ```
-
-1.  Update the **sqlDBConnectionString** string constant by setting its value to the **ADO.NET (SQL Authentication) connection string** of the SQL database that you recorded earlier in this lab.
-
-    > **Note**: It's important that you use your updated connection string here. The original connection string copied from the portal won't have the username and password necessary to connect to the SQL database.
-
-1.  Within the **Program** class, enter the following line of code to create a new string constant named **cosmosDBConnectionString**: 
-
-    ```
-    private const string cosmosDBConnectionString = "";
+    ```ini
+    AdventureWorksSqlContext=<your sql connection string>
+    CosmosDBConnectionString=<your cosmos db connecting string>
     ```
 
 1.  Update the **cosmosDBConnectionString** string constant by setting its value to the **PRIMARY CONNECTION STRING** of the Azure Cosmos DB account that you recorded earlier in this lab.
 
-1.  Within the **Program** class, enter the following code to create a new asynchronous **Main** method:
+1.  Update the **AdventureWorksSqlContext** string, enter the connection string you use in previous exercise. 
 
-    ```
-    public static async Task Main(string[] args)
-    {
+
+1.  Return to **index.js** file. Enter the following code to create a new asynchronous **main** method:
+
+    ```javascript
+    function async main() {
     }
+
+    main();
     ```
 
-1.  Within the **Main** method, add the following line of code to print an introductory message to the console:
+1.  Within the **main** method, add the following line of code to the top of the **index.js** to reference the file where you data structure is described:
 
-    ```
-    await Console.Out.WriteLineAsync("Start Migration");
+    ```javascript
+    const sqlrepo = require('./sqlrepo');
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Migrate** folder:
+1.  At the open command prompt, enter the following command, and then select Enter to run your application. The application should be executed without errors:
 
     ```
-    cd .\AdventureWorks.Migrate\
-    ```
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
+    node .\index.js
     ```
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
 #### Task 3: Get SQL database records by using Entity Framework
 
-1.  Within the **Main** method of the **Program** class within the **Program.cs** file, add the following line of code to create a new instance of the **AdventureWorksSqlContext** class, passing in the *sqlDBConnectionString* variable as the connection string value:
+1.  Within the **main** method of the **index.js** file, add the following line of code to create a new instance of the **sqlrepo** class, where environment variable **AdventureWorksSqlContext** parsed to get DB connection. You also need to request all Models from DB to migration:
 
-    ```
-    using AdventureWorksSqlContext context = new AdventureWorksSqlContext(sqlDBConnectionString);
-    ```
-
-1.  Within the **Main** method, add the following block of code to issue a language-integrated query (LINQ) to get all **Models** and child **Products** from the database and store them in an in-memory **List<>** collection:
-
-    ```
-    List<Model> items = await context.Models
-        .Include(m => m.Products)
-        .ToListAsync<Model>();
+    ```javascript
+    var models =  await sqlrepo.getModels()
     ```
 
-1.  Within the **Main** method, add the following line of code to print the number of records imported from SQL Database:
+1.  Within the **main** method, add the following line of code to print the number of records imported from SQL Database:
 
-    ```
-    await Console.Out.WriteLineAsync($"Total Azure SQL DB Records: {items.Count}");
+    ```javascript
+    console.log(`Total Azure SQL DB Records: ${models.length}`);
     ```
 
-1.  Save the **Program.cs** file.
+1.  Save the **index.js** file.
 
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Migrate** folder:
+1.  At the open command prompt, enter the following command, and then select Enter to run your application. The application should return you message that 119 models are retrieved:
 
     ```
-    cd .\AdventureWorks.Migrate\
+    node .\index.js
     ```
-    
-1.  At the command prompt,  enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
-    ```
-
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\04\\Solution\\AdventureWorks\\AdventureWorks.Migrate** folder.
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
 #### Task 4: Insert items into Azure Cosmos DB
 
-1.  Within the **Main** method of the **Program** class within the **Program.cs** file, add the following line of code to create a new instance of the **CosmosClient** class, passing in the *cosmosDBConnectionString* variable as the connection string value:
+1.  In the **index.js** file add the following lines after the `sqlrepo` file was referenced, but before the method **main** started. Following code will create object client to get connected to the Azure Cosmos DB by use connection string you setup in variables. 
 
+    ```javascript
+    const CosmosClient = require('@azure/cosmos').CosmosClient;
+    const client = new CosmosClient(process.env.CosmosDBConnectionString);
     ```
-    using CosmosClient client = new CosmosClient(cosmosDBConnectionString);
-    ```
+1.  Add the following function as next functor to format output variables. 
 
-1.  Within the **Main** method, add the following line of code to create a new **database** named **Retail** if it doesn't already exist in the Azure Cosmos DB account:
-
-    ```
-    Database database = await client.CreateDatabaseIfNotExistsAsync("Retail");
-    ```
-
-1.  Within the **Main** method, add the following block of code to create a new **container** named **Online** if it doesn't already exist in the Azure Cosmos DB account with a partition key path of **/Category** and a throughput of **1000** Request Units:
-
-    ```
-    Container container = await database.CreateContainerIfNotExistsAsync("Online",
-        partitionKeyPath: $"/{nameof(Model.Category)}",
-        throughput: 1000
-    );
+    ```javascript
+    const zeroPad = (num, places) => String(num).padStart(places, '0')
     ```
 
-1.  Within the **Main** method, add the following line of code to create an *int* variable named **count**:
+1.  Within the **main** method, add the following line of code to create a new **database** named **Retail** if it doesn't already exist in the Azure Cosmos DB account. Add the line on top of the method **main**:
 
-    ```
-    int count = 0;
+    ```javascript
+    var dbName = 'Retail';
+    await client.databases.createIfNotExists({ id: dbName });
     ```
 
-1.  Within the **Main** method, add the following block of code to create a **foreach** loop that iterates over the objects in the **items** collection:
+1.  Within the **main** method, add the following block of code to create a new **container** named **Online** if it doesn't already exist in the Azure Cosmos DB account with a partition key path of **/Category** and a throughput of **1000** Request Units:
 
+    ```javascript
+    const { container } = await client
+        .database( dbName )
+        .containers.createIfNotExists(
+            { id: 'Online', partitionKey: '/Category' },
+            { offerThroughput: 1000 }
+        );
     ```
-    foreach (var item in items)
-    {
+
+1.  Within the **main** method, under the line of loading models from SQL db add the following line of code to create a variable named **count**:
+
+    ```javascript
+    var count = 0;
+    ```
+
+1.  Within the **main** method, add the following block of code to create a **for** loop that iterates over the objects in the **models** collection and check if the models are retrieved from debase:
+
+    ```javascript
+    if (models != null && models.length > 0) {
+        for (let i = 0; i < models.length; i++) {
+            // add processing code for the models[i]
+        }
     }
     ```
 
-1.  Within the **foreach** loop in the **Main** method, add the following line of code to **upsert** the object into the Azure Cosmos DB collection and save the result in a variable of type *ItemResponse<>* named **document**:
+1.  Within the **for** loop in the **main** method, add the following line of code to **upsert** the object into the Azure Cosmos DB collection and save the result named **doc**:
 
-    ```
-    ItemResponse<Model> document = await container.UpsertItemAsync<Model>(item);
-    ```
+    ```javascript
+            var model = { 
+                id: models[i].Id, 
+                Name: models[i].Name, 
+                Category: models[i].Category,
+                Description: models[i].Description,
+                Photo: models[i].Photo,
+                Products: models[i].Products }
 
-1.  Within the **foreach** loop contained in the **Main** method, add the following line of code to print the activity ID of each upsert operation:
-
-    ```
-    await Console.Out.WriteLineAsync($"Upserted document #{++count:000} [Activity Id: {document.ActivityId}]");
-    ```
-
-1.  Back within the **Main** method (outside of the **foreach** loop), add the following line of code to print the number of documents exported to Azure Cosmos DB:
-
-    ```
-    await Console.Out.WriteLineAsync($"Total Azure Cosmos DB Documents: {count}");
+            var { resource: doc } = await container.items.upsert(model)
+   
     ```
 
-1.  Save the **Program.cs** file.
+1.  Within the **for** loop contained in the **main** method, add the following line of code to print the document ID of each upsert operation:
 
-1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
-
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Migrate** folder:
-
-    ```
-    cd .\AdventureWorks.Migrate\
-    ```
-    
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
+    ```javascript
+    console.log(`Upserted document #${zeroPad(++count,3)} withId: ${doc.id}]`);
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\04\\Solution\\AdventureWorks\\AdventureWorks.Migrate** folder.
+1.  Back within the **main** method (outside of the **for** loop), add the following line of code to print the number of documents exported to Azure Cosmos DB:
+
+    ```javascript
+    console.log(`Total Azure Cosmos DB Documents: ${count}`);
+    ```
+1.  Your final version of the method **main** should looks like following:
+
+    ```javascript
+    async function main() {
+        
+        var dbName = 'Retail';
+        await client.databases.createIfNotExists({ id: dbName });
+
+        const { container } = await client
+            .database( dbName )
+            .containers.createIfNotExists(
+                { id: 'Online', partitionKey: '/Category' },
+                { offerThroughput: 1000 }
+            );
+
+        var models =  await sqlrepo.getModels()
+        
+        console.log(`Total Azure SQL DB Records: ${models.length}`);
+
+        var count=0;
+        if (models != null && models.length > 0) {
+            for (let i = 0; i < models.length; i++) {
+
+                var model = { 
+                    id: models[i].Id, 
+                    Name: models[i].Name, 
+                    Category: models[i].Category,
+                    Description: models[i].Description,
+                    Photo: models[i].Photo,
+                    Products: models[i].Products }
+
+                var { resource: doc } = await container.items.upsert(model)
+                console.log(`Upserted document #${zeroPad(++count,3)} withId: ${doc.id}]`);
+            }
+        }
+
+        console.log(`Total Azure Cosmos DB Documents: ${count}`);
+    }
+    ```
+
+    > **Note**: If there are any build errors, review the **index.js** file in the **\\Allfiles\\Labs\\04\\Solution\\Migrate** folder.
+
+1.  Save the **index.js** file.
+
+
 
 #### Task 5: Perform a migration
 
-1.  At the open command prompt, enter the following command, and then select Enter to run the .NET web application:
+1.  At the open command prompt, enter the following command, and then select Enter to run the application:
 
     ```
-    dotnet run
+    node .\index.js
     ```
-
-    > **Note**: The **dotnet run** command will start the console application.
 
 1.  Observe the various data that prints to the screen, including initial SQL record count, individual upsert activity identifiers, and final Azure Cosmos DB document count.
 
@@ -766,7 +711,7 @@ In this exercise, you configured your ASP.NET web application to connect to your
 
 1.  From the **Resource groups** blade, find and select the **PolyglotData** resource group that you created earlier in this lab.
 
-1.  From the **PolyglotData** blade, select the **polycosmos*[yourname]*** Azure Cosmos DB account that you created earlier in this lab.
+1.  From the **PolyglotData** blade, select the **polycosmos[yourname]** Azure Cosmos DB account that you created earlier in this lab.
 
 1.  From the **Azure Cosmos DB account** blade, find and select the **Data Explorer** link from the blade.
 
@@ -796,288 +741,214 @@ In this exercise, you configured your ASP.NET web application to connect to your
 
 #### Review
 
-In this exercise, you used Entity Framework and the .NET SDK for Azure Cosmos DB to migrate data from SQL Database to Azure Cosmos DB.
+In this exercise, you used NPM module for Azure Cosmos DB to migrate data from SQL Database to Azure Cosmos DB.
 
-### Exercise 5: Accessing Azure Cosmos DB by using .NET
+### Exercise 5: Accessing Azure Cosmos DB by using Node.js
 
 #### Task 1: Update library with the Cosmos SDK and references
 
+1.  In the **Visual Studio Code** open folder **AdventureWorks**.
+
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Context** folder:
+1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks** folder.
+
+1.  At the command prompt, enter the following command, and then select Enter to import **@azure/cosmos** from npm:
 
     ```
-    cd .\AdventureWorks.Context\
+    npm install @azure/cosmos
     ```
 
-1.  At the command prompt, enter the following command, and then select Enter to import **Microsoft.Azure.Cosmos** from NuGet:
+1. Open file **.env** and add new line and replace value with your Cosmos DB connection string collected previously:
 
-    ```
-    dotnet add package Microsoft.Azure.Cosmos --version 3.4.1
-    ```
-
-    > **Note**: The **dotnet add package** command will add the **Microsoft.Azure.Cosmos** package from **NuGet**. For more information, go to: [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.4.1).
-
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
+    ```ini
+    CosmosDBConnectionString=<your cosmos db connections string>
     ```
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-#### Task 2: Write .NET code to connect to Azure Cosmos DB
+#### Task 2: Write Node.js code to connect to Azure Cosmos DB
 
-1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Context** project.
+1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks** folder.
 
-1.  Access the shortcut menu or right-click or activate the shortcut menu for the **AdventureWorks.Context** folder node, and then select **New File**.
+1.  Access the shortcut menu or right-click or activate the shortcut menu  and then select **New File** named **cosmosrepo.js**.
 
-1.  At the new file prompt, enter **AdventureWorksCosmosContext.cs**.
+1.  From the code editor tab for the **cosmosrepo.js** file, add the following lines of code to import the cosmos db namespace from to the project:
 
-1.  From the code editor tab for the **AdventureWorksCosmosContext.cs** file, add the following lines of code to import the **AdventureWorks.Models** namespace from the referenced **AdventureWorks.Models** project:
-
-    ```
-    using AdventureWorks.Models;
+    ```javascript
+    const CosmosClient = require('@azure/cosmos').CosmosClient;
     ```
 
-1.  Add the following lines of code to import the **Microsoft.Azure.Cosmos** and **Microsoft.Azure.Cosmos.Linq** namespaces from the **Microsoft.Azure.Cosmos** package imported from NuGet:
+1.  Add the following lines of code to implement models' function you previously build for objects retrieved from sql server:
 
-    ```
-    using Microsoft.Azure.Cosmos;
-    using Microsoft.Azure.Cosmos.Linq;
+    ```javascript
+    function avgProdPrice() {
+        if (this.Products!=undefined && this.Products.length >0) {
+            var total = 0;
+            this.Products.forEach(prod => {
+                total += Number(prod.ListPrice)
+            });
+            return (total/this.Products.length).toFixed(2)
+        }
+        return 0;
+    };
+    function  modelList() {
+        if (this.products!=undefined && this.Products.length >0) {
+            var list = [];
+            this.Products.forEach(prod => {
+                list.push(prod.Name)
+            });
+            return list;
+        }
+        return [];
+    }   
     ```
 
-1.  Add the following lines of code to add **using** directives for the built-in namespaces that will be used in this file:
+1.  Within the **cosmosrepo.js** file, add the following block of code to create a new instance of the **CosmosClient** class and then obtain both a **database** and **container** instance from the client:
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+    ```javascript
+    const client = new CosmosClient(process.env.CosmosDBConnectionString);
+    const database = client.database('Retail');
+    const container = database.container('Online');
     ```
 
-1.  Enter the following code to add an **AdventureWorks.Context** namespace block:
+1.  Within the **cosmosrepo.js** file, add a new **findModel** method with the following signature:
 
-    ```
-    namespace AdventureWorks.Context
-    {
+    ```javascript
+    module.exports = {
+        findModel: async function (modelId) {
+        }
     }
     ```
 
-1.  Within the **AdventureWorks.Context** namespace, enter the following code to create a new **AdventureWorksCosmosContext** class:
+1.  Within the **findModel** method, add the following blocks of code to create a SQL query, transform it into an iterator, iterate over the result set, and then return the single item in the result set:
 
+    ```javascript
+        var querySpec = { 
+            query: 'SELECT * from items WHERE items.id = @id',
+            parameters: [{ name: "@id", value: modelId }]
+        };
+        var { resources: items } = await container.items
+        .query(querySpec)
+        .fetchAll();
+
+        if (items != undefined && items.length > 0) {
+            var model=items[0]
+            model.Id = model.id;
+            model.Products = await this.findProducts(model.id);
+            model.modelList = modelList;
+            model.avgProdPrice = avgProdPrice;
+            return model;
+        }
+        return null;
     ```
-    public class AdventureWorksCosmosContext
-    {
+
+1.  Within the **cosmosrepo.js** file, add a new **getModels** method with the following signature inside `module.exports = {...}`:
+
+    ```javascript
+    getModels: async function () {
     }
     ```
 
-1.  Update the declaration of the **AdventureWorksCosmosContext** class by adding a specification indicating that this class will implement the **IAdventureWorksProductContext** interface:
+1.  Within the **getModels** method, add the following blocks of code to run an SQL query, get the query result iterator, iterate over the result set, and then return the union of all results:
 
+    ```javascript
+        var querySpec = { query: 'SELECT * from models' };
+
+        var { resources: models } = await container.items
+                .query(querySpec)
+                .fetchAll();
+
+        var products = await this.getProducts();
+        
+        for(let i=0; i< models.length; i++)
+        {
+            models[i].Id = models[i].id;
+            models[i].Products = products.filter(function(prod) {
+                return prod.ModelId == models[i].id;
+              });
+            models[i].modelList = modelList;
+            models[i].avgProdPrice = avgProdPrice;
+        }
+        return models;
     ```
-    public class AdventureWorksCosmosContext : IAdventureWorksProductContext
-    {
+
+1.  Within the **cosmosrepo.js** file, add a new **findProducts** method with the following signature inside `module.exports = {...}`:
+
+    ```javascript
+    findProducts: async function (modelId) {
     }
     ```
 
-1.  Within the **AdventureWorksCosmosContext** class, enter the following line of code to create a new read-only *Container* variable named **_container**:
+1.  Within the **findProducts** method, add the following blocks of code to run an SQL query, get the query and then return the collection of items in the result set:
 
-    ```
-    private readonly Container _container;
+    ```javascript
+        var querySpec = { 
+            query: 'SELECT VALUE Products FROM Models JOIN Products in Models.Products WHERE Products.ModelId = @mid',
+            parameters: [{ name: "@mid", value: modelId }]
+        };
+        var { resources: products } = await container.items
+        .query(querySpec)
+        .fetchAll();
+
+        return products;
     ```
 
-1.  Within the **AdventureWorksCosmosContext** class, add a new constructor with the following signature:
+1.  Within the **cosmosrepo.js** file, add a new **getProducts** method with the following signature inside `module.exports = {...}`:
 
-    ```
-    public AdventureWorksCosmosContext(string connectionString, string database = "Retail", string container = "Online")
-    {
+    ```javascript
+    getProducts: async function () {
     }
+    ``` 
+
+1.  Within the **getProducts** method, add the following blocks of code to run an SQL query, get the query and then return the collection of items in the result set:
+
+    ```javascript
+        var querySpec = { 
+            query: 'SELECT VALUE Products FROM Models JOIN Products in Models.Products'
+        };
+        var { resources: items } = await container.items
+        .query(querySpec)
+        .fetchAll();
+
+        return items;
     ```
 
-1.  Within the constructor, add the following block of code to create a new instance of the **CosmosClient** class and then obtain both a **Database** and **Container** instance from the client:
+1.  Save the **cosmosrepo.js** file.
 
-    ```
-    _container = new CosmosClient(connectionString)
-        .GetDatabase(database)
-        .GetContainer(container);
-    ```
-
-1.  Within the **AdventureWorksCosmosContext** class, add a new **FindModelAsync** method with the following signature:
-
-    ```
-    public async Task<Model> FindModelAsync(Guid id)
-    {
-    }
-    ```
-
-1.  Within the **FindModelAsync** method, add the following blocks of code to create a LINQ query, transform it into an iterator, iterate over the result set, and then return the single item in the result set:
-
-    ```
-    var iterator = _container.GetItemLinqQueryable<Model>()
-        .Where(m => m.id == id)
-        .ToFeedIterator<Model>();
-
-    List<Model> matches = new List<Model>();
-    while (iterator.HasMoreResults)
-    {
-        var next = await iterator.ReadNextAsync();
-        matches.AddRange(next);
-    }
-
-    return matches.SingleOrDefault();
-    ```
-
-1.  Within the **AdventureWorksCosmosContext** class, add a new **GetModelsAsync** method with the following signature:
-
-    ```
-    public async Task<List<Model>> GetModelsAsync()
-    {
-    }
-    ```
-
-1.  Within the **GetModelsAsync** method, add the following blocks of code to run an SQL query, get the query result iterator, iterate over the result set, and then return the union of all results:
-
-    ```
-    string query = $@"SELECT * FROM items";
-
-    var iterator = _container.GetItemQueryIterator<Model>(query);
-
-    List<Model> matches = new List<Model>();
-    while (iterator.HasMoreResults)
-    {
-        var next = await iterator.ReadNextAsync();
-        matches.AddRange(next);
-    }
-
-    return matches;
-    ```
-
-1.  Within the **AdventureWorksCosmosContext** class, add a new **FindProductAsync** method with the following signature:
-
-    ```
-    public async Task<Product> FindProductAsync(Guid id)
-    {
-    }
-    ```
-
-1.  Within the **FindProductAsync** method, add the following blocks of code to run an SQL query, get the query result iterator, iterate over the result set, and then return the single item in the result set:
-
-    ```
-    string query = $@"SELECT VALUE products
-                        FROM models
-                        JOIN products in models.Products
-                        WHERE products.id = '{id}'";
-
-    var iterator = _container.GetItemQueryIterator<Product>(query);
-
-    List<Product> matches = new List<Product>();
-    while (iterator.HasMoreResults)
-    {
-        var next = await iterator.ReadNextAsync();
-        matches.AddRange(next);
-    }
-
-    return matches.SingleOrDefault();
-    ```
-
-1.  Save the **AdventureWorksCosmosContext.cs** file.
-
-1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
-
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Context** folder:
-
-    ```
-    cd .\AdventureWorks.Context\
-    ```
-    
-1.  At the command prompt, enter the following command, and then select Enter to build the .NET web application:
-
-    ```
-    dotnet build
-    ```
-
-    > **Note**: If there are any build errors, review the **AdventureWorksCosmosContext.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\04\\Solution\\AdventureWorks\\AdventureWorks.Context** folder.
-
-1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
-
-#### Task 3: Update the Azure Cosmos DB connection string
+#### Task 3: Update Node.js web application logic
 
 1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Web** project.
 
-1.  Open the **appsettings.json** file.
+1.  Open the **routes\details.js** file.
 
-1.  In the JSON object on line 4, find the **ConnectionStrings.AdventureWorksCosmosContext** path. Observe that the current value is empty:
+1.  In the top of the file, find the existing line:
 
-    ```
-    "ConnectionStrings": {
-        ...
-        "AdventureWorksCosmosContext": "",
-        ...
-    },
+    ```javascript
+    const sqlrepo = require('../sqlrepo');
     ```
 
-1.  Update the value of the **AdventureWorksCosmosContext** property by setting its value to the **PRIMARY CONNECTION STRING** of the Azure Cosmos DB account that you recorded earlier in this lab.
+1.  Replace that with following line of code:
 
-1.  Save the **appsettings.json** file.
-
-#### Task 4: Update .NET application startup logic
-
-1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Web** project.
-
-1.  Open the **Startup.cs** file.
-
-1.  In the **Startup** class, find the existing **ConfigureProductService** method:
-
-    ```
-    public void ConfigureProductService(IServiceCollection services)
-    {
-        services.AddScoped<IAdventureWorksProductContext, AdventureWorksSqlContext>(provider =>
-            new AdventureWorksSqlContext(
-                _configuration.GetConnectionString(nameof(AdventureWorksSqlContext))
-            )
-        );
-    }
+    ```javascript
+    const sqlrepo = require('../cosmosrepo');
     ```
 
-    > **Note**: The current product service uses SQL as its database.
+1.  Repeat the same step with **routes\index.js** file.
 
-1.  Within the **ConfigureProductService** method, delete all existing lines of code:
-
-    ```
-    public void ConfigureProductService(IServiceCollection services)
-    {
-    }
-    ```
-
-1.  Within the **ConfigureProductService** method, add the following block of code to change the products provider to the **AdventureWorksCosmosContext** implementation that you created earlier in this lab:
-
-    ```
-    services.AddScoped<IAdventureWorksProductContext, AdventureWorksCosmosContext>(provider =>
-        new AdventureWorksCosmosContext(
-            _configuration.GetConnectionString(nameof(AdventureWorksCosmosContext))
-        )
-    );
-    ```
-
-1.  Save the **Startup.cs** file.
-
-#### Task 5: Validate that the .NET application successfully connects to Azure Cosmos DB
+#### Task 5: Validate that the Nodejs application successfully connects to Azure Cosmos DB
 
 1.  In the **Visual Studio Code** window, access the shortcut menu or right-click or activate the shortcut menu for the Explorer pane, and then select **Open in Terminal**.
 
-1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks.Web** folder:
+1.  At the open command prompt, enter the following command, and then select Enter to switch your terminal context to the **AdventureWorks** folder.
+
+1.  At the command prompt, enter the following command, and then select Enter to run the web application:
 
     ```
-    cd .\AdventureWorks.Web\
+    node .\index.js
     ```
 
-1.  At the command prompt, enter the following command, and then select Enter to run the .NET web application:
-
-    ```
-    dotnet run
-    ```
-
-    > **Note**: The **dotnet run** command will automatically build any changes to the project and then start the web application without a debugger attached. The command will output the URL of the running application and any assigned ports.
+    > **Note**: If there are any build errors, review the project file in the **\\Allfiles\\Labs\\04\\Solution\\AdventureWorks-Cosmos** folder.
 
 1.  On the taskbar, select the **Microsoft Edge** icon.
 
@@ -1089,7 +960,7 @@ In this exercise, you used Entity Framework and the .NET SDK for Azure Cosmos DB
 
 1.  From the **Touring-1000** product detail page, perform the following actions:
 
-    1.  In the **Select options** list, select **Touring-1000 Yellow, 50, $2,384.07**.
+    1.  In the **Select options** list, select **Touring-1000 Yellow, 50, $2384.07**.
     
     1.  Find **Add to Cart**, and then observe that the checkout functionality is still disabled.
 
@@ -1099,7 +970,7 @@ In this exercise, you used Entity Framework and the .NET SDK for Azure Cosmos DB
 
 #### Review
 
-In this exercise, you wrote C# code to query an Azure Cosmos DB collection by using the .NET SDK.
+In this exercise, you wrote C# code to query an Azure Cosmos DB collection by using the SDK.
 
 ### Exercise 6: Clean up your subscription 
 

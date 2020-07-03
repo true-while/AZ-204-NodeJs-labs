@@ -5,7 +5,7 @@ This copy of original course [REPO](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab01: Creating Azure App Service Web Apps](/Instructions/Labs/AZ-204_01_lab_ak.md)
 - [Lab02: Implement Azure Functions](/Instructions/Labs/AZ-204_02_lab_ak.md)
 - [Lab03: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK](/Instructions/Labs/AZ-204_03_lab_ak.md)
-- Lab04:  coming soon
+- [Lab04: Constructing a polyglot data solution](/Instructions/Labs/AZ-204_04_lab_ak.md)
 - [Lab05: Deploying compute workloads by using images and containers](/Instructions/Labs/AZ-204_05_lab_ak.md)
 - [Lab06: Authenticating to and querying Microsoft Graph by using MSAL SDK](/Instructions/Labs/AZ-204_06_lab_ak.md)
 - [Lab07: Access resource secrets more securely across services](/Instructions/Labs/AZ-204_07_lab_ak.md)
@@ -14,7 +14,7 @@ This copy of original course [REPO](https://github.com/MicrosoftLearning/AZ-204-
 - [Lab10: Publishing and subscribing to Event Grid events](/Instructions/Labs/AZ-204_10_lab_ak.md)
 - [Lab11: Asynchronously processing messages by using Azure Storage Queues](/Instructions/Labs/AZ-204_11_lab_ak.md)
 - [Lab12: Monitor and optimize Azure solutions](/Instructions/Labs/AZ-204_12_lab_ak.md)
-
+- [Lab13: Integrate caching and content delivery within solutions](/Instructions/Labs/AZ-204_13_lab_ak.md)
 
 
 ## What are we doing?
