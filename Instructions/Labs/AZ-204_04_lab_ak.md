@@ -490,7 +490,7 @@ In this exercise, you configured your web application to connect to your resourc
 
 #### Task 2: Create a classes 
 
-1.  In the Explorer pane of the **Visual Studio Code** window, expand the **AdventureWorks.Migrate** project.
+1.  In the Explorer pane of the **Visual Studio Code** window, expand the **Migrate** project.
 
 1.  Open the **index.js** file.
 
