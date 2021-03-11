@@ -40,7 +40,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 #### Task 2: Open Azure Cloud Shell
 
-1.  In the portal, select the **Cloud Shell** icon to open a new shell instance.
+1.  In the Azure portal, select the **Cloud Shell** icon to open a new shell instance.
 
     > **Note**: The **Cloud Shell** icon is represented by a greater than sign (\>) and underscore character (\_).
 
@@ -56,7 +56,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     az --version
     ```
 
-#### Task 3: Register the Microsoft.EventGrid provider
+#### Task 3: View the Microsoft.EventGrid provider registration
 
 1.  At the **Cloud Shell** command prompt in the portal, perform the following actions:
 
@@ -94,7 +94,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  On the **New** blade, find the **Search the Marketplace** text box.
 
-1.  In the search box, enter **Event Grid**, and then select Enter.
+1.  In the search box, enter **Event Grid Topic**, and then select Enter.
 
 1.  On the **Everything** search results blade, select the **Event Grid Topic** result.
 
@@ -110,7 +110,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  From the **Event Schema** drop-down list, select **Event Grid Schema**, and then select **Create**.
   
-    > **Note**: Wait for Azure to finish creating the topic before you continue with the lab. You'll receive a notification when the app is created.
+    > **Note**: Wait for Azure to finish creating the topic before you continue with the lab. You'll receive a notification when the topic is created.
 
 #### Task 5: Deploy the Azure Event Grid viewer to a web app
 
@@ -222,7 +222,7 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
     1.  Select **Create**.
   
-    > **Note**: Wait for Azure to finish creating the subscription before you continue with the lab. You'll receive a notification when the app is created.
+    > **Note**: Wait for Azure to finish creating the subscription before you continue with the lab. You'll receive a notification when the subscription is created.
 
 #### Task 3: Observe the subscription validation event
 
@@ -507,8 +507,6 @@ In this exercise, you created a new subscription, validated its registration, an
 1.  Review the **Employees.Registration.New** events that were created by your console application.
 
 1.  Select any of the events and review its JSON content.
-
-1.  If the events is not appears on the page, refresh the page and run the application again.
 
 1.  Return to the Azure portal.
 

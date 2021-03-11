@@ -69,9 +69,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     1.  In the **Account kind** list, select **StorageV2 (general purpose v2)**.
     
     1.  In the **Replication** list, select **Locally-redundant storage (LRS)**.
-    
-    1.  In the **Access tier (default)** section, ensure that **Hot** is selected.
-    
+        
     1.  Select **Review + Create**.
 
 1.  On the **Review + Create** tab, review the options that you specified in the previous steps.
@@ -349,7 +347,7 @@ In this exercise, you configured your project to access the Storage service and 
 
 1.  In the **Azure Storage Explorer** window, select **Open Azure Storage Explorer**.
 
-    > **Note**: If this is your first time opening Storage Explorer `by using the portal`, you might be prompted to allow the portal to open these types of links in the future. You should accept the prompt.
+    > **Note**: If this is your first time opening Storage Explorer by using the portal, you might be prompted to allow the portal to open these types of links in the future. You should accept the prompt.
 
 1.  In the **Azure Storage Explorer** application, you will notice a prompt to sign in to your Azure account. Sign in by performing the following actions:
 

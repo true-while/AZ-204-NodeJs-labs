@@ -68,8 +68,6 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Replication** drop-down list, select **Read-access geo-redundant storage (RA-GRS)**.
 
-    1.  In the **Access tier** section, ensure that **Hot** is selected.
-
     1.  Select **Review + Create**.
 
 1.  On the **Review + Create** tab, review the options that you selected during the previous steps.
@@ -93,8 +91,10 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1.  Still on the **Storage account** blade, find the **Settings** section, and then select the **Access keys** link.
 
 1.  In the **Access keys** section, perform the following actions:
+
+    1.  Record the value in the **Storage account name** text box.
     
-    1.  Select any one of the **Connection string**, and then record the value.
+    1.  Select any one of the keys, and then record the value in either of the **Key** boxes.
 
     > **Note**: All these values will be used later in this lab.
 

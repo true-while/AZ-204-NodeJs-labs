@@ -8,9 +8,9 @@ lab:
 
 ## Microsoft Azure user interface
 
-Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes after the development of this training content. These changes might cause the lab instructions and lab steps to not match up.
+Given the dynamic nature of Microsoft cloud tools, you might experience Azure user interface (UI) changes after the development of this training content. These changes might cause the lab instructions and lab steps to not match.
 
-Microsoft updates this training course when the community brings needed changes to our attention; however, because cloud updates occur frequently, you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needSed.**
+Microsoft updates this training course when the community brings needed changes to our attention; however, because cloud updates occur frequently, you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
 
 ## Instructions
 
@@ -35,15 +35,11 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 #### Task 1: Open the Azure portal
 
-1.  On the taskbar, select the **Microsoft Edge** icon.
-
-1.  In the open browser window, go to the Azure portal (<https://portal.azure.com>).
-
-1.  Enter the email address for your Microsoft account, and then select **Next**.
-
-1.  Enter the password for your Microsoft account, and then select **Sign in**.
-
-    > **Note**: If this is your first time signing in to the Azure portal, you'll be offered a tour of the portal. Select **Get Started** to skip the tour and begin using the portal.
+1. On the taskbar, select the **Microsoft Edge** icon.
+1. In the open browser window, go to the Azure portal (<https://portal.azure.com>).
+1. Enter the email address for your Microsoft account, and then select **Next**.
+1. Enter the password for your Microsoft account, and then select **Sign in**.
+    > **Note**: If this is your first time signing in to the Azure portal, you'll be offered a tour of the portal. If you prefer to skip the tour, select **Get Started** to begin using the portal.
 
 #### Task 2: Create an Azure Storage account
 
@@ -75,8 +71,6 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Replication** list, select **Locally-redundant storage (LRS)**.
     
-    1.  In the **Access tier (default)** section, ensure that **Hot** is selected.
-    
     1.  Select **Review + Create**.
 
 1.  On the **Review + Create** tab, review the options that you specified in the previous steps.
@@ -84,8 +78,14 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1.  Select **Create** to create the storage account by using your specified configuration.
 
     > **Note**: On the **Deployment** blade, wait for the creation task to complete before moving forward with this lab.
+1. In the Azure portal's navigation pane, select **All services**.
+1. On the **All services** blade, select **Storage Accounts**.
+1. On the **Storage accounts** blade, select the **funcstor[yourname]** storage account instance.
+1. From the **Storage account** blade, find the **Settings** section, and then select **Access keys**.
+1. From the **Access keys** blade, select any one of the keys, and then record the value of either of the **Connection string** boxes.
+    > **Note**: You'll use this value later in the lab. It doesn't matter which connection string you choose. They are interchangeable.
 
-#### Task 3: Create an Azure Functions app
+#### Task 3: Create a Function app
 
 1.  In the Azure portal's navigation pane, select the **Create a resource** link.
 
@@ -124,12 +124,6 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     1.  In the **Operating System** section, select **Windows**.
 
     1.  In the **Plan type** drop-down list, select the **Consumption** option.
-
-    1.  Select **Next: Monitoring**.
-
-1.  On the **Monitoring** tab, perform the following actions:
-
-    1.  In the **Enable Application Insights** section, select **No**.
 
     1.  Select **Review + Create**.
 

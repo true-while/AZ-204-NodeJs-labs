@@ -68,6 +68,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     
     1.  In the **Region** drop-down list, select the **(US) East US** region.
     
+    1.  In the **Resource Mode** section, select the **Classic** option.
+    
     1.  Select **Review + Create**.
 
 1.  From the **Review + Create** tab, review the options that you selected during the previous steps.

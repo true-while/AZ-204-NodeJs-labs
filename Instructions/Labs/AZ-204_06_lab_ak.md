@@ -54,7 +54,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     1.  In the **Supported account types** list, select the **Accounts in this organizational directory only (Default Directory only - Single tenant)** check box.
 
-    1.  In the **Redirect URI** drop-down list, select **Web Client**.
+    1.  In the **Redirect URI** drop-down list, select **Public client/native (mobile & desktop)**.
 
     1.  In the **Redirect URI** text box, enter **http\://localhost**.
 
@@ -66,7 +66,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  In the **Authentication** section, perform the following actions:
 
-    1.  In the **Default client type** subsection, select **Yes**.
+    1.  In the **Advanced settings** - **Allow public client flows** subsection, select **Yes**.
 
     1.  Select **Save**.
 
